@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laderes Realty | Nebraska Real Estate Excellence</title>
+    <title>Paredes Realty | Nebraska Real Estate Excellence</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
@@ -65,9 +65,8 @@
         }
         
         .property-card:hover .property-info {
-    transition: transform 0.5s ease, top 0.5s ease;
-}
-
+            transition: transform 0.5s ease, top 0.5s ease;
+        }
         
         .testimonial-card:hover {
             transform: translateY(-10px);
@@ -100,29 +99,88 @@
                 url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23005c35' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
             pointer-events: none;
         }
+
+        .property-carousel {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .property-carousel img {
+            transition: opacity 0.5s ease;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .property-info {
+            transition: all 0.5s ease;
+        }
         
-      .sticky-contact {
-    position: relative;
-    animation: pulse-wave 2.8s infinite;
-    z-index: 1;
-}
+        .sticky-contact {
+            position: relative;
+            animation: pulse-wave 2.8s infinite;
+            z-index: 1;
+        }
 
-@keyframes pulse-wave {
-    0% {
-        box-shadow: 0 0 0 0 rgba(6, 94, 70, 0.6);
-    }
-    70% {
-        box-shadow: 0 0 0 20px rgba(6, 94, 70, 0);
-    }
-    100% {
-        box-shadow: 0 0 0 0 rgba(6, 94, 70, 0);
-    }
-}
+        @keyframes pulse-wave {
+            0% {
+                box-shadow: 0 0 0 0 rgba(6, 94, 70, 0.6);
+            }
+            70% {
+                box-shadow: 0 0 0 20px rgba(6, 94, 70, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(6, 94, 70, 0);
+            }
+        }
 
+        .asym-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 250px);
+            gap: 20px;
+        }
+
+        .asym-grid > div:nth-child(1) {
+            grid-column: 1 / 2;
+            grid-row: 1 / 3;
+        }
+
+        .asym-grid > div:nth-child(2) {
+            grid-column: 2 / 3;
+            grid-row: 1 / 2;
+        }
+
+        .asym-grid > div:nth-child(3) {
+            grid-column: 3 / 4;
+            grid-row: 1 / 2;
+        }
+
+        .asym-grid > div:nth-child(4) {
+            grid-column: 1 / 2;
+            grid-row: 3 / 4;
+        }
+
+        .asym-grid > div:nth-child(5) {
+            grid-column: 2 / 4;
+            grid-row: 2 / 4;
+        }
+
+        @media (max-width: 768px) {
+            .asym-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+            }
+            .asym-grid > div {
+                grid-column: 1 / 2 !important;
+                grid-row: auto !important;
+            }
+        }
     </style>
 </head>
 <body class="text-light font-sans antialiased">
- <body>
     <!-- Banner flotante para cambio de idioma -->
     <div id="language-bar" class="fixed bottom-4 right-4 bg-accent text-white text-sm px-4 py-3 rounded-lg shadow-lg z-50 hidden">
         <div class="flex items-center justify-between">
@@ -134,136 +192,41 @@
             <button onclick="closeLanguageBar()" class="ml-3 text-white font-bold">&times;</button>
         </div>
     </div>
-    <!-- Script para mostrar y manejar el cambio de idioma -->
-    <script>
-        // Muestra el banner después de unos segundos (por ejemplo, 2 segundos)
-        window.addEventListener('DOMContentLoaded', () => {
-            setTimeout(() => {
-                document.getElementById('language-bar').classList.remove('hidden');
-            }, 2000);
-        });
-
-        function setLanguage(lang) {
-            // Lógica de cambio de idioma (puedes personalizar esto)
-            alert('Language changed to: ' + (lang === 'en' ? 'English' : 'Español'));
-            closeLanguageBar();
-        }
-
-        function closeLanguageBar() {
-            document.getElementById('language-bar').classList.add('hidden');
-        }
-    </script>
-
-    <!-- Estilos personalizados para el banner -->
-    <style>
-        .bg-accent {
-            background-color: #000000; /* Negro para el fondo del banner */
-        }
-
-        .language-button {
-            background-color: #065f46; /* Verde oscuro */
-            color: white;
-            padding: 0.25rem 0.5rem;
-            border-radius: 0.375rem;
-            border: none;
-        }
-
-        .language-button:hover {
-            background-color: #064e3b; /* Verde aún más oscuro al pasar el mouse */
-        }
-
-        /* Style de la grid */
-        .asym-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 250px);
-    gap: 20px;
-}
-
-.asym-grid > div:nth-child(1) {
-    grid-column: 1 / 2;
-    grid-row: 1 / 3;
-}
-
-.asym-grid > div:nth-child(2) {
-    grid-column: 2 / 3;
-    grid-row: 1 / 2;
-}
-
-.asym-grid > div:nth-child(3) {
-    grid-column: 3 / 4;
-    grid-row: 1 / 2;
-}
-
-.asym-grid > div:nth-child(4) {
-    grid-column: 1 / 2;
-    grid-row: 3 / 4;
-}
-
-.asym-grid > div:nth-child(5) {
-    grid-column: 2 / 4;
-    grid-row: 2 / 4;
-}
-
-@media (max-width: 768px) {
-    .asym-grid {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-    }
-    .asym-grid > div {
-        grid-column: 1 / 2 !important;
-        grid-row: auto !important;
-    }
-}
-
-    </style>
-</body>
-   
     
-<!-- Sticky Button + Card -->
-<div class="fixed top-1/2 right-6 transform -translate-y-1/2 z-50">
-    <!-- Button -->
-<button id="toggleContact" class="bg-[#064e3b] px-5 py-3 rounded-full shadow-lg hover:bg-[#065f46] transition-all duration-300 sticky-contact text-white font-semibold flex items-center space-x-2">
-    <i class="fas fa-user text-white text-xl"></i>
-    <span>Get in touch!</span>
-</button>
+    <!-- Sticky Button + Card -->
+    <div class="fixed top-1/2 right-6 transform -translate-y-1/2 z-50">
+        <!-- Button -->
+        <button id="toggleContact" class="bg-[#064e3b] px-5 py-3 rounded-full shadow-lg hover:bg-[#065f46] transition-all duration-300 sticky-contact text-white font-semibold flex items-center space-x-2">
+            <i class="fas fa-user text-white text-xl"></i>
+            <span>Get in touch!</span>
+        </button>
 
-
-    <!-- Contact Card -->
-    <div id="contactCard" class="mt-4 bg-deepgreen p-6 rounded-xl shadow-2xl w-72 border border-accent hidden transition-all duration-300">
-        <div class="flex items-center mb-4">
-            <div class="relative">
-                <img src="img/personal/closeup.jpg" alt="Francisco Paredes" class="w-16 h-16 rounded-full object-cover border-2 border-deepgreen">
-                <span class="absolute bottom-0 right-0 w-4 h-4 bg-emerald-500 rounded-full border-2 border-deepgreen"></span>
+        <!-- Contact Card -->
+        <div id="contactCard" class="mt-4 bg-deepgreen p-6 rounded-xl shadow-2xl w-72 border border-accent hidden transition-all duration-300">
+            <div class="flex items-center mb-4">
+                <div class="relative">
+                    <img src="img/personal/closeup.jpg" alt="Francisco Paredes" class="w-16 h-16 rounded-full object-cover border-2 border-deepgreen">
+                    <span class="absolute bottom-0 right-0 w-4 h-4 bg-emerald-500 rounded-full border-2 border-deepgreen"></span>
+                </div>
+                <div class="ml-4">
+                    <h3 class="font-bold text-xl">Francisco Paredes</h3>
+                    <p class="text-gray-300 text-sm">Principal Broker</p>
+                </div>
             </div>
-            <div class="ml-4">
-                <h3 class="font-bold text-xl">Francisco Paredes</h3>
-                <p class="text-gray-300 text-sm">Principal Broker</p>
+            <div class="border-t border-accent pt-4">
+                <p class="font-medium">Direct Contact</p>
+                <p class="text-accent font-semibold mt-1 flex items-center">
+                    <i class="fas fa-phone mr-2"></i> (531)283-2262
+                </p>
+                <p class="mt-1 flex items-center break-all">
+                    <i class="fas fa-envelope mr-2 text-gray-300"></i> francisco.paredes@betteromaha.com
+                </p>
+                <a href="#contact" class="mt-4 w-full py-3 bg-accent rounded-lg font-semibold hover:bg-[#007A42] transition duration-300 flex items-center justify-center">
+                    <i class="far fa-calendar mr-2"></i> Schedule Consultation
+                </a>
             </div>
-        </div>
-        <div class="border-t border-accent pt-4">
-            <p class="font-medium">Direct Contact</p>
-            <p class="text-accent font-semibold mt-1 flex items-center">
-                <i class="fas fa-phone mr-2"></i> (531)283-2262
-            </p>
-            <p class="mt-1 flex items-center break-all">
-                <i class="fas fa-envelope mr-2 text-gray-300"></i> francisco.paredes@betteromaha.com
-            </p>
-            <a href="#contact" class="mt-4 w-full py-3 bg-accent rounded-lg font-semibold hover:bg-[#007A42] transition duration-300 flex items-center justify-center">
-             <i class="far fa-calendar mr-2"></i> Schedule Consultation
-            </a>
         </div>
     </div>
-</div>
-
-<!-- Script to mantain button -->
-<script>
-document.getElementById('toggleContact').addEventListener('click', () => {
-    const card = document.getElementById('contactCard');
-    card.classList.toggle('hidden');
-});
-</script>
-
 
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 w-full bg-transparent z-40 py-6 px-8 backdrop-blur">
@@ -271,7 +234,7 @@ document.getElementById('toggleContact').addEventListener('click', () => {
             <div>
                 <a href="#" class="flex items-center">
                     <img src="img/logos/GreenGrass.jpg" alt="ParedesRealty Logo" class="w-12 h-12 mr-2 rounded-full">
-                   <h1 class="text-2xl font-display font-bold">Paredes<span class="text-accent">Realty</span></h1>
+                    <h1 class="text-2xl font-display font-bold">Paredes<span class="text-accent">Realty</span></h1>
                 </a>
             </div>
             <div class="hidden md:flex space-x-10">
@@ -311,7 +274,7 @@ document.getElementById('toggleContact').addEventListener('click', () => {
         <div class="absolute bottom-0 left-0 w-full diagonal-divider"></div>
     </header>
 
-    <!-- Sold Properties Section | ALWAYS ADD DETAILS FROM ZILLOW-->
+    <!-- Sold Properties Section -->
     <section id="properties" class="py-20 relative z-10 bg-darkbg">
         <div class="container mx-auto px-6">
             <div class="text-center mb-20">
@@ -323,88 +286,43 @@ document.getElementById('toggleContact').addEventListener('click', () => {
                 </p>
             </div>
 
-<!-- Asymmetrical Grid -->
-<div class="asym-grid max-w-6xl mx-auto slide-in delay-2">
-    <!-- Property 1 -->
-    <div class="property-card rounded-2xl overflow-hidden relative group cursor-pointer transition-all duration-500 transform hover:scale-[1.02]">
-        <img src="img/properties/prop1/front.jpg" alt="1565 Trumball Ter" class="w-full h-full object-cover">
-        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent z-10"></div>
-        <div class="property-info absolute bottom-0 left-0 p-6 w-full z-20 bg-gradient-to-t from-black to-transparent transition-all duration-700">
-            <span class="text-accent bg-black/70 rounded-full text-xs px-3 py-1">Lakefront Living</span>
-            <h3 class="text-xl font-bold mt-2">1565 Trumball Ter</h3>
-            <p class="text-gray-300 mt-1">Plattsmouth, NE</p>
-            <div class="flex justify-between items-center mt-4">
-                <span class="text-sm">Closing Price: <span class="text-accent">$369,000</span></span>
-                <span class="text-xs bg-deepgreen rounded-full px-2 py-1">20 days</span>
-            </div>
-        </div>
-        
-    </div>
+            <!-- Grid asimétrico con carruseles -->
+            <div class="asym-grid max-w-6xl mx-auto slide-in delay-2">
+                <!-- Property 1 -->
+                <div class="property-card rounded-2xl overflow-hidden relative group cursor-pointer transition-all duration-500 transform hover:scale-[1.02]">
+                    <div class="property-carousel" id="property1"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent z-10"></div>
+                    <div class="hidden group-hover:block absolute inset-0 bg-gradient-to-t from-deepgreen/70 to-transparent z-30"></div>
+                </div>
 
-    <!-- Property 2 -->
-    <div class="property-card rounded-2xl overflow-hidden relative group cursor-pointer transition-all duration-500 transform hover:scale-[1.02]">
-        <img src="img/properties/prop3/front.png" alt="5727 S 15th St" class="w-full h-full object-cover">
-        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent z-10"></div>
-        <div class="property-info absolute bottom-0 left-0 p-6 w-full z-20 bg-gradient-to-t from-black to-transparent transition-all duration-700">
-            <span class="text-accent bg-black/70 rounded-full text-xs px-3 py-1">All-cash offer</span>
-            <h3 class="text-xl font-bold mt-2">5727 S 15th St</h3>
-            <p class="text-gray-300 mt-1">Omaha, NE</p>
-            <div class="flex justify-between items-center mt-4">
-                <span class="text-sm">Closing Price: <span class="text-accent">$295,000</span></span>
-                <span class="text-xs bg-deepgreen rounded-full px-2 py-1">2 months</span>
-            </div>
-        </div>
-       
-    </div>
+                <!-- Property 2 -->
+                <div class="property-card rounded-2xl overflow-hidden relative group cursor-pointer transition-all duration-500 transform hover:scale-[1.02]">
+                    <div class="property-carousel" id="property2"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent z-10"></div>
+                    <div class="hidden group-hover:block absolute inset-0 bg-gradient-to-t from-deepgreen/70 to-transparent z-30"></div>
+                </div>
 
-    <!-- Property 3 -->
-    <div class="property-card rounded-2xl overflow-hidden relative group cursor-pointer transition-all duration-500 transform hover:scale-[1.02]">
-        <img src="img/properties/prop5/front.png" alt="9119 Meadow Dr" class="w-full h-full object-cover">
-        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent z-10"></div>
-        <div class="property-info absolute bottom-0 left-0 p-6 w-full z-20 bg-gradient-to-t from-black to-transparent transition-all duration-700">
-            <span class="text-accent bg-black/70 rounded-full text-xs px-3 py-1">One with Nature</span>
-            <h3 class="text-xl font-bold mt-2">9119 Meadow Dr</h3>
-            <p class="text-gray-300 mt-1">Omaha, NE 68114</p>
-            <div class="flex justify-between items-center mt-4">
-                <span class="text-sm">Closing Price: <span class="text-accent">$270,000</span></span>
-                <span class="text-xs bg-deepgreen rounded-full px-2 py-1">1 month</span>
-            </div>
-        </div>
-       
-    </div>
+                <!-- Property 3 -->
+                <div class="property-card rounded-2xl overflow-hidden relative group cursor-pointer transition-all duration-500 transform hover:scale-[1.02]">
+                    <div class="property-carousel" id="property3"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent z-10"></div>
+                    <div class="hidden group-hover:block absolute inset-0 bg-gradient-to-t from-deepgreen/70 to-transparent z-30"></div>
+                </div>
 
-    <!-- Property 4 -->
-    <div class="property-card rounded-2xl overflow-hidden relative group cursor-pointer transition-all duration-500 transform hover:scale-[1.02]">
-        <img src="img/properties/prop4/front.png" alt="12807 S 45th St" class="w-full h-full object-cover">
-        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent z-10"></div>
-        <div class="property-info absolute bottom-0 left-0 p-6 w-full z-20 bg-gradient-to-t from-black to-transparent transition-all duration-700">
-            <span class="text-accent bg-black/70 rounded-full text-xs px-3 py-1">Built in 2022</span>
-            <h3 class="text-xl font-bold mt-2">12807 S 45th St</h3>
-            <p class="text-gray-300 mt-1">Bellevue, NE</p>
-            <div class="flex justify-between items-center mt-4">
-                <span class="text-sm">Closing Price: <span class="text-accent">$345,000</span></span>
-                <span class="text-xs bg-deepgreen rounded-full px-2 py-1">3 months</span>
-            </div>
-        </div>
-        
-    </div>
+                <!-- Property 4 -->
+                <div class="property-card rounded-2xl overflow-hidden relative group cursor-pointer transition-all duration-500 transform hover:scale-[1.02]">
+                    <div class="property-carousel" id="property4"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent z-10"></div>
+                    <div class="hidden group-hover:block absolute inset-0 bg-gradient-to-t from-deepgreen/70 to-transparent z-30"></div>
+                </div>
 
-    <!-- Property 5 -->
-    <div class="property-card rounded-2xl overflow-hidden relative group cursor-pointer transition-all duration-500 transform hover:scale-[1.02]">
-        <img src="img/properties/prop2/front.jpg" alt="1112 Hackney Dr" class="w-full h-full object-cover">
-        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent z-10"></div>
-        <div class="property-info absolute bottom-0 left-0 p-6 w-full z-20 bg-gradient-to-t from-black to-transparent transition-all duration-700">
-            <span class="text-accent bg-black/70 rounded-full text-xs px-3 py-1">Single Family Residence</span>
-            <h3 class="text-xl font-bold mt-2">1112 Hackney Dr</h3>
-            <p class="text-gray-300 mt-1">Papillion, NE</p>
-            <div class="flex justify-between items-center mt-4">
-                <span class="text-sm">Closing Price: <span class="text-accent">$285,000</span></span>
-                <span class="text-xs bg-deepgreen rounded-full px-2 py-1">20 days</span>
+                <!-- Property 5 -->
+                <div class="property-card rounded-2xl overflow-hidden relative group cursor-pointer transition-all duration-500 transform hover:scale-[1.02]">
+                    <div class="property-carousel" id="property5"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent z-10"></div>
+                    <div class="hidden group-hover:block absolute inset-0 bg-gradient-to-t from-deepgreen/70 to-transparent z-30"></div>
+                </div>
             </div>
-        </div>
-    
-    </div>
-</div>
             
             <div class="text-center mt-20">
                 <a href="#" class="inline-flex items-center px-6 py-3 border-2 border-accent rounded-full font-semibold group hover:bg-accent transition duration-300 slide-in delay-3">
@@ -432,7 +350,7 @@ document.getElementById('toggleContact').addEventListener('click', () => {
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                 <div class="testimonial-card bg-black/30 backdrop-blur-sm p-8 rounded-2xl border border-accent/20 transition-all duration-500 slide-in">
                     <div class="flex items-center mb-6">
-                        <img src="img/testimonials/gianca.png" alt="Client Name" class="w-14 h-14 rounded-full object-cover"> <!-- Client Image -->
+                        <img src="img/testimonials/gianca.png" alt="Client Name" class="w-14 h-14 rounded-full object-cover">
                         <div class="ml-4">
                             <h4 class="font-bold text-lg">Baby Gianca</h4>
                             <p class="text-gray-300 text-sm">Bought a $1.45M property</p>
@@ -521,7 +439,7 @@ document.getElementById('toggleContact').addEventListener('click', () => {
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
                 <div class="order-2 lg:order-1 slide-in">
                     <div class="relative">
-                        <img src="img/personal/classic.jpg" alt="Francisco Paredes" class="w-90 h-90 rounded-full object-cover"> <!-- Francisco Image -->
+                        <img src="img/personal/classic.jpg" alt="Francisco Paredes" class="w-90 h-90 rounded-full object-cover">
                         <img src="img/logos/GreenBold.jpg" alt="About Image" class="absolute -bottom-6 -right-6 w-90 h-20 rounded-lg border-4 border-accent/40 object-cover">
                         <div class="absolute -top-6 -left-6 bg-gradient-to-br from-black/40 via-black/20 to-black/40 backdrop-blur-sm p-5 rounded-lg shadow-lg border border-accent/20 max-w-xs">
                             <p class="text-gray-300 italic">"I sell the only two things I can control, my time and my reputation."</p>
@@ -669,13 +587,37 @@ document.getElementById('toggleContact').addEventListener('click', () => {
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script>
+        // Script para el banner de idioma
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                document.getElementById('language-bar').classList.remove('hidden');
+            }, 2000);
+        });
+
+        function setLanguage(lang) {
+            alert('Language changed to: ' + (lang === 'en' ? 'English' : 'Español'));
+            closeLanguageBar();
+        }
+
+        function closeLanguageBar() {
+            document.getElementById('language-bar').classList.add('hidden');
+        }
+
+        // Script para el botón de contacto
+        document.getElementById('toggleContact').addEventListener('click', () => {
+            const card = document.getElementById('contactCard');
+            card.classList.toggle('hidden');
+        });
+
+        // Script para animaciones de scroll
         document.addEventListener('DOMContentLoaded', function() {
             const slideIns = document.querySelectorAll('.slide-in');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.style.opacity = '0'; // Reset for animation
+                        entry.target.style.opacity = '0';
                         setTimeout(() => {
                             entry.target.style.animation = 'slideIn 0.6s ease-out forwards';
                         }, 100);
@@ -688,7 +630,7 @@ document.getElementById('toggleContact').addEventListener('click', () => {
             
             slideIns.forEach(el => observer.observe(el));
             
-            // Add smooth scrolling for navigation
+            // Smooth scrolling
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
@@ -698,46 +640,182 @@ document.getElementById('toggleContact').addEventListener('click', () => {
                 });
             });
         });
-    </script>
 
- <!-- Script to increment Results Numbers -->
-    <script>
-document.addEventListener('DOMContentLoaded', () => {
-    const counters = document.querySelectorAll('.counter');
-    let hasAnimated = false;
+        // Script para contadores animados
+        document.addEventListener('DOMContentLoaded', () => {
+            const counters = document.querySelectorAll('.counter');
+            let hasAnimated = false;
 
-    const animateCounter = (el) => {
-        const target = +el.getAttribute('data-target');
-        const isPercent = el.textContent.includes('%');
-        const duration = 1500;
-        const stepTime = Math.max(15, duration / target);
-        let count = 0;
+            const animateCounter = (el) => {
+                const target = +el.getAttribute('data-target');
+                const isPercent = el.textContent.includes('%');
+                const duration = 1500;
+                const stepTime = Math.max(15, duration / target);
+                let count = 0;
 
-        const updateCount = () => {
-            count++;
-            if (count >= target) {
-                el.textContent = isPercent ? `${target}%` : target;
-            } else {
-                el.textContent = isPercent ? `${count}%` : count;
-                setTimeout(updateCount, stepTime);
+                const updateCount = () => {
+                    count++;
+                    if (count >= target) {
+                        el.textContent = isPercent ? `${target}%` : target;
+                    } else {
+                        el.textContent = isPercent ? `${count}%` : count;
+                        setTimeout(updateCount, stepTime);
+                    }
+                };
+                updateCount();
+            };
+
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !hasAnimated) {
+                        hasAnimated = true;
+                        counters.forEach(counter => animateCounter(counter));
+                        observer.disconnect();
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            counters.forEach(counter => observer.observe(counter));
+        });
+
+        // Script para los carruseles de propiedades
+        document.addEventListener('DOMContentLoaded', function() {
+            // Datos para cada propiedad (imágenes y textos que rotarán)
+            const propertyContents = {
+                property1: [
+                    {
+                        image: "img/properties/prop1/front.jpg",
+                        alt: "1565 Trumball Ter",
+                        tag: "Lakefront Living",
+                        title: "1565 Trumball Ter",
+                        location: "Plattsmouth, NE",
+                        price: "$369,000",
+                        days: "20 days"
+                    },
+                    {
+                        image: "img/properties/prop2/front.jpg",
+                        alt: "Living Room",
+                        tag: "Spacious Living",
+                        title: "1565 Trumball Ter",
+                        location: "2,450 sqft • 4 Bed",
+                        price: "$369,000",
+                        days: "20 days"
+                    },
+                ],
+                property2: [
+                    {
+                        image: "img/properties/prop3/front.png",
+                        alt: "1112 Hackney Dr",
+                        tag: "Single Family Residence",
+                        title: "1112 Hackney Dr",
+                        location: "Papillion, NE",
+                        price: "$285,000",
+                        days: "20 days"
+                    },
+                    {
+                        image: "img/properties/prop4/front.png",
+                        alt: "Backyard",
+                        tag: "Landscaped Garden",
+                        title: "1112 Hackney Dr",
+                        location: "0.5 acre lot",
+                        price: "$285,000",
+                        days: "20 days"
+                    }
+                ],
+                property3: [
+                    {
+                        image: "img/properties/prop5/front.png",
+                        alt: "5727 S 15th St",
+                        tag: "All-cash offer",
+                        title: "5727 S 15th St",
+                        location: "Omaha, NE",
+                        price: "$295,000",
+                        days: "2 months"
+                    },
+                    {
+                        image: "img/properties/prop6/front.png",
+                        alt: "Living Area",
+                        tag: "Open Concept",
+                        title: "5727 S 15th St",
+                        location: "1,850 sqft",
+                        price: "$295,000",
+                        days: "2 months"
+                    }
+                ],
+                property4: [
+                    {
+                        image: "img/properties/prop7/front.png",
+                        alt: "12807 S 45th St",
+                        tag: "Built in 2022",
+                        title: "12807 S 45th St",
+                        location: "Bellevue, NE",
+                        price: "$345,000",
+                        days: "3 months"
+                    },
+                    {
+                        image: "img/properties/prop8/front.png",
+                        alt: "Luxury Bath",
+                        tag: "Modern Finishes",
+                        title: "12807 S 45th St",
+                        location: "3.5 Baths",
+                        price: "$345,000",
+                        days: "3 months"
+                    }
+                ],
+                property5: [
+                    {
+                        image: "img/properties/prop9/front.png",
+                        alt: "9119 Meadow Dr",
+                        tag: "One with Nature",
+                        title: "9119 Meadow Dr",
+                        location: "Omaha, NE 68114",
+                        price: "$270,000",
+                        days: "1 month"
+                    },
+                    {
+                        image: "img/properties/prop10/front.png",
+                        alt: "Outdoor Living",
+                        tag: "Private Oasis",
+                        title: "9119 Meadow 802 N 4th St",
+                        location: "Bellevue, NE 68005",
+                        price: "$240,000",
+                        days: "1 month"
+                    }
+                ]
+            };
+
+            // Función para rotar el contenido de una propiedad
+            function rotatePropertyContent(propertyId, contents) {
+                let currentIndex = 0;
+                const container = document.getElementById(propertyId);
+                
+                function updateContent() {
+                    const content = contents[currentIndex];
+                    container.innerHTML = `
+                        <img src="${content.image}" alt="${content.alt}" class="w-full h-full object-cover">
+                        <div class="property-info absolute bottom-0 left-0 p-6 w-full z-20 bg-gradient-to-t from-black to-transparent">
+                            <span class="text-accent bg-black/70 rounded-full text-xs px-3 py-1">${content.tag}</span>
+                            <h3 class="text-xl font-bold mt-2">${content.title}</h3>
+                            <p class="text-gray-300 mt-1">${content.location}</p>
+                            <div class="flex justify-between items-center mt-4">
+                                <span class="text-sm">Closing Price: <span class="text-accent">${content.price}</span></span>
+                                <span class="text-xs bg-deepgreen rounded-full px-2 py-1">${content.days}</span>
+                            </div>
+                        </div>
+                    `;
+                    currentIndex = (currentIndex + 1) % contents.length;
+                }
+                
+                // Actualizar inmediatamente y cada 10 segundos
+                updateContent();
+                setInterval(updateContent, 10000);
             }
-        };
-        updateCount();
-    };
 
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && !hasAnimated) {
-                hasAnimated = true;
-                counters.forEach(counter => animateCounter(counter));
-                observer.disconnect();
+            // Iniciar rotación para cada propiedad
+            for (const [propertyId, contents] of Object.entries(propertyContents)) {
+                rotatePropertyContent(propertyId, contents);
             }
         });
-    }, { threshold: 0.5 });
-
-    counters.forEach(counter => observer.observe(counter));
-});
-</script>
-
+    </script>
 </body>
 </html>
