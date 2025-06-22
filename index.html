@@ -299,19 +299,26 @@
 
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 w-full bg-transparent z-40 py-6 px-8 backdrop-blur">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div>
+        <div class="max-w-7xl mx-auto relative flex items-center justify-between">
+            <!-- Left: Logo -->
+            <img src="img/logos/GreenBold.jpg" alt="ParedesRealty Logo" class="h-16 mr-3 object-cover">
+            
+            <!-- Center: Brand Name -->
+            <div class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1 md:translate-y-0 flex items-center">
                 <a href="#" class="flex items-center">
-                    <img src="img/logos/GreenGrass.jpg" alt="ParedesRealty Logo" class="w-12 h-12 mr-2 rounded-full">
                     <h1 class="text-2xl font-display font-bold">Paredes<span class="text-accent">Realty</span></h1>
                 </a>
             </div>
+            
+            <!-- Right: Navigation Links -->
             <div class="hidden md:flex space-x-10">
                 <a href="#properties" class="text-gray-300 hover:text-accent transition duration-300" data-i18n="sold_portfolio">Sold Portfolio</a>
                 <a href="#testimonials" class="text-gray-300 hover:text-accent transition duration-300" data-i18n="testimonials">Testimonials</a>
                 <a href="#about" class="text-gray-300 hover:text-accent transition duration-300" data-i18n="about">About</a>
                 <a href="#contact" class="text-accent font-semibold" data-i18n="contact">Contact</a>
             </div>
+            
+            <!-- Mobile Menu Button -->
             <button class="md:hidden text-gray-300">
                 <i class="fas fa-bars text-2xl"></i>
             </button>
@@ -346,7 +353,7 @@
                 </p>
             </div>
             <div class="slide-in delay-2 mt-12">
-                <a href="#properties" class="inline-block px-8 py-4 bg-accent rounded-full font-semibold text-lg hover:bg-[#007A42] transition duration-300" data-i18n="hero_cta">
+                <a href="#buy-sell-section" class="inline-block px-8 py-4 bg-accent rounded-full font-semibold text-lg hover:bg-[#007A42] transition duration-300" data-i18n="hero_cta">
                     Get Started <i class="fas fa-arrow-down ml-2"></i>
                 </a>
             </div>
@@ -393,17 +400,289 @@
         <div class="property-carousel" id="property5"></div>
       </div>
     </div>
-
-    <div class="text-center mt-20">
-      <a href="#" class="inline-flex items-center px-6 py-3 border-2 border-accent rounded-full font-semibold group hover:bg-accent transition duration-300 slide-in delay-3" data-i18n="view_portfolio">
-        View Complete Portfolio
-        <i class="fas fa-arrow-right ml-3 group-hover:translate-x-1 transition-transform duration-300"></i>
-      </a>
-    </div>
   </div>
 </section>
 
+<!-- Buy/Sell Interactive Section -->
+<section id="buy-sell-section" class="py-32 relative overflow-hidden bg-gradient-to-br from-darkbg via-deepgreen/20 to-darkbg">
+  <div class="absolute inset-0 bg-grid bg-top bg-repeat opacity-30" style="background-size: 100px 100px;"></div>
+  <div class="container mx-auto px-6 relative z-10">
+    <div class="text-center mb-24">
+      <h2 class="text-5xl font-display font-bold mb-4 slide-in" data-i18n="ready_move_forward">Ready to <span class="text-accent">Move Forward</span>?</h2>
+      <p class="max-w-2xl mx-auto text-gray-300 text-lg slide-in delay-1" data-i18n="choose_path">Choose your path and discover what you need to know</p>
+    </div>
+    
+    <!-- Interactive Signs Container -->
+    <div class="max-w-6xl mx-auto relative">
+      <!-- Main Signs View -->
+      <div id="signs-container" class="flex items-center justify-center gap-48 md:gap-64 lg:gap-80 transition-all duration-1000 min-h-[500px]">
+        <!-- Sell Sign -->
+        <div id="sell-sign" class="group cursor-pointer transform hover:scale-105 transition-all duration-500">
+          <div class="relative">
+            <div class="w-4 h-64 bg-accent mx-auto rounded-full shadow-lg"></div>
+            <div class="absolute top-16 left-1/2 transform -translate-x-1/2 bg-white text-deepgreen p-12 rounded-lg shadow-2xl border-4 border-accent min-w-[280px]">
+              <div class="text-center">
+                <div class="text-4xl font-bold mb-2" data-i18n="ready_to_sell">I'm ready to SELL</div>
+                <div class="mt-4 text-sm text-gray-600" data-i18n="click_learn_more">Click to learn more</div>
+              </div>
+              <div class="absolute top-1/2 -right-3 transform -translate-y-1/2 w-0 h-0 border-t-8 border-b-8 border-l-8 border-transparent border-l-accent"></div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Buy Sign -->
+        <div id="buy-sign" class="group cursor-pointer transform hover:scale-105 transition-all duration-500">
+          <div class="relative">
+            <div class="w-4 h-64 bg-accent mx-auto rounded-full shadow-lg"></div>
+            <div class="absolute top-16 left-1/2 transform -translate-x-1/2 bg-white text-deepgreen p-12 rounded-lg shadow-2xl border-4 border-accent min-w-[280px]">
+              <div class="text-center">
+                <div class="text-4xl font-bold mb-2" data-i18n="ready_to_buy">I'm ready to BUY</div>
+                <div class="mt-4 text-sm text-gray-600" data-i18n="click_learn_more">Click to learn more</div>
+              </div>
+              <div class="absolute top-1/2 -left-3 transform -translate-y-1/2 w-0 h-0 border-t-8 border-b-8 border-r-8 border-transparent border-r-accent"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Buy Requirements Panel -->
+      <div id="buy-panel" class="absolute inset-0 bg-deepgreen/95 backdrop-blur-md rounded-3xl p-6 opacity-0 pointer-events-none transition-all duration-1000 transform scale-95">
+        <div class="h-full flex flex-col max-h-full overflow-y-auto">
+          <div class="flex justify-between items-center mb-6">
+            <h3 class="text-3xl md:text-4xl font-display font-bold text-white" data-i18n="buying_requirements">Buying Requirements</h3>
+            <button id="close-buy" class="text-white hover:text-accent text-2xl md:text-3xl transition-colors">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          
+          <div class="grid md:grid-cols-2 gap-6 flex-1">
+            <div class="space-y-4">
+              <div class="bg-black/30 p-4 md:p-6 rounded-xl border border-accent/20">
+                <h4 class="text-lg md:text-xl font-bold text-accent mb-3 md:mb-4 flex items-center">
+                  <i class="fas fa-file-invoice-dollar mr-3"></i>
+                  <span data-i18n="financial_preparation">Financial Preparation</span>
+                </h4>
+                <ul class="space-y-2 md:space-y-3 text-gray-300 text-sm md:text-base">
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-accent mr-3 mt-1"></i>
+                    <span>Pre-approval letter from lender</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-accent mr-3 mt-1"></i>
+                    <span>Proof of funds for down payment</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-accent mr-3 mt-1"></i>
+                    <span>Recent bank statements (2-3 months)</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-accent mr-3 mt-1"></i>
+                    <span>W-2 forms and tax returns</span>
+                  </li>
+                </ul>
+              </div>
 
+              <div class="bg-black/30 p-4 md:p-6 rounded-xl border border-accent/20">
+                <h4 class="text-lg md:text-xl font-bold text-accent mb-3 md:mb-4 flex items-center">
+                  <i class="fas fa-home mr-3"></i>
+                  <span data-i18n="property_preferences">Property Preferences</span>
+                </h4>
+                <ul class="space-y-2 md:space-y-3 text-gray-300 text-sm md:text-base">
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-accent mr-3 mt-1"></i>
+                    <span>Desired neighborhoods and areas</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-accent mr-3 mt-1"></i>
+                    <span>Budget range and price limits</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-accent mr-3 mt-1"></i>
+                    <span>Must-have features and amenities</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-accent mr-3 mt-1"></i>
+                    <span>Timeline for purchase</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              <div class="bg-black/30 p-4 md:p-6 rounded-xl border border-accent/20">
+                <h4 class="text-lg md:text-xl font-bold text-accent mb-3 md:mb-4 flex items-center">
+                  <i class="fas fa-user-tie mr-3"></i>
+                  Personal Information
+                </h4>
+                <ul class="space-y-2 md:space-y-3 text-gray-300 text-sm md:text-base">
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-accent mr-3 mt-1"></i>
+                    <span>Valid government ID</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-accent mr-3 mt-1"></i>
+                    <span>Employment verification</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-accent mr-3 mt-1"></i>
+                    <span>Credit report authorization</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-accent mr-3 mt-1"></i>
+                    <span>Contact information and availability</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="bg-black/30 p-4 md:p-6 rounded-xl border border-accent/20">
+                <h4 class="text-lg md:text-xl font-bold text-accent mb-3 md:mb-4 flex items-center">
+                  <i class="fas fa-handshake mr-3"></i>
+                  Next Steps
+                </h4>
+                <ul class="space-y-2 md:space-y-3 text-gray-300 text-sm md:text-base">
+                  <li class="flex items-start">
+                    <i class="fas fa-arrow-right text-accent mr-3 mt-1"></i>
+                    <span>Schedule consultation with Francisco</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-arrow-right text-accent mr-3 mt-1"></i>
+                    <span>Property search and viewings</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-arrow-right text-accent mr-3 mt-1"></i>
+                    <span>Offer preparation and negotiation</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-arrow-right text-accent mr-3 mt-1"></i>
+                    <span>Closing process and finalization</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sell Requirements Panel -->
+      <div id="sell-panel" class="absolute inset-0 bg-deepgreen/95 backdrop-blur-md rounded-3xl p-6 opacity-0 pointer-events-none transition-all duration-1000 transform scale-95">
+        <div class="h-full flex flex-col max-h-full overflow-y-auto">
+          <div class="flex justify-between items-center mb-6">
+            <h3 class="text-3xl md:text-4xl font-display font-bold text-white" data-i18n="selling_requirements">Selling Requirements</h3>
+            <button id="close-sell" class="text-white hover:text-accent text-2xl md:text-3xl transition-colors">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          
+          <div class="grid md:grid-cols-2 gap-6 flex-1">
+            <div class="space-y-4">
+              <div class="bg-black/30 p-4 md:p-6 rounded-xl border border-accent/20">
+                <h4 class="text-lg md:text-xl font-bold text-accent mb-3 md:mb-4 flex items-center">
+                  <i class="fas fa-home mr-3"></i>
+                  Property Information
+                </h4>
+                <ul class="space-y-2 md:space-y-3 text-gray-300 text-sm md:text-base">
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-accent mr-3 mt-1"></i>
+                    <span>Property address and details</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-accent mr-3 mt-1"></i>
+                    <span>Current mortgage information</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-accent mr-3 mt-1"></i>
+                    <span>Property tax records</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-accent mr-3 mt-1"></i>
+                    <span>Homeowners insurance details</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="bg-black/30 p-4 md:p-6 rounded-xl border border-accent/20">
+                <h4 class="text-lg md:text-xl font-bold text-accent mb-3 md:mb-4 flex items-center">
+                  <i class="fas fa-tools mr-3"></i>
+                  Property Condition
+                </h4>
+                <ul class="space-y-2 md:space-y-3 text-gray-300 text-sm md:text-base">
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-accent mr-3 mt-1"></i>
+                    <span>Recent repairs and improvements</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-accent mr-3 mt-1"></i>
+                    <span>Known issues or needed repairs</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-accent mr-3 mt-1"></i>
+                    <span>Property photos and videos</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-accent mr-3 mt-1"></i>
+                    <span>Utility and maintenance records</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              <div class="bg-black/30 p-4 md:p-6 rounded-xl border border-accent/20">
+                <h4 class="text-lg md:text-xl font-bold text-accent mb-3 md:mb-4 flex items-center">
+                  <i class="fas fa-dollar-sign mr-3"></i>
+                  Financial Details
+                </h4>
+                <ul class="space-y-2 md:space-y-3 text-gray-300 text-sm md:text-base">
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-accent mr-3 mt-1"></i>
+                    <span>Desired sale price range</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-accent mr-3 mt-1"></i>
+                    <span>Timeline for selling</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-accent mr-3 mt-1"></i>
+                    <span>Flexibility on price and terms</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-accent mr-3 mt-1"></i>
+                    <span>Plans after selling (buying, renting, etc.)</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="bg-black/30 p-4 md:p-6 rounded-xl border border-accent/20">
+                <h4 class="text-lg md:text-xl font-bold text-accent mb-3 md:mb-4 flex items-center">
+                  <i class="fas fa-chart-line mr-3"></i>
+                  Marketing Strategy
+                </h4>
+                <ul class="space-y-2 md:space-y-3 text-gray-300 text-sm md:text-base">
+                  <li class="flex items-start">
+                    <i class="fas fa-arrow-right text-accent mr-3 mt-1"></i>
+                    <span>Professional photography and staging</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-arrow-right text-accent mr-3 mt-1"></i>
+                    <span>MLS listing and online marketing</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-arrow-right text-accent mr-3 mt-1"></i>
+                    <span>Open houses and private showings</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-arrow-right text-accent mr-3 mt-1"></i>
+                    <span>Offer review and negotiation</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- Testimonials Section -->
 <section id="testimonials" class="py-20 relative overflow-hidden">
@@ -415,181 +694,157 @@
       <p class="max-w-2xl mx-auto text-gray-300 text-lg slide-in delay-1" data-i18n="hear_from">Hear from homeowners who have experienced the Paredes Realty difference</p>
     </div>
 
-    <!-- Swiper Wrapper -->
-    <div class="swiper-container max-w-6xl mx-auto">
+    <!-- Modern Swiper Container -->
+    <div class="swiper testimonials-swiper max-w-7xl mx-auto">
       <div class="swiper-wrapper">
         <!-- Testimonial 1 -->
         <div class="swiper-slide">
-          <div class="testimonial-card bg-black/30 backdrop-blur-sm p-8 rounded-2xl border border-accent/20 transition-all duration-500 h-full">
-            <div class="flex items-center mb-6">
-              <img src="img/testimonials/default.jpg" alt="Jessica" class="w-14 h-14 rounded-full object-cover" />
-              <div class="ml-4">
-                <h4 class="font-bold text-lg">Jessica Rehurek</h4>
-                <p class="text-gray-300 text-sm">Bought a Townhouse home in 2025</p>
-              </div>
-            </div>
-            <div class="flex mb-4 text-yellow-400">
+          <div class="testimonial-card bg-black/20 backdrop-blur-md p-8 rounded-3xl border border-accent/10 transition-all duration-700 h-full hover:bg-black/30 hover:border-accent/20 hover:scale-[1.02]">
+            <div class="flex mb-6 text-yellow-400">
               <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
             </div>
-            <p class="text-gray-300 italic">"Francisco did an amazing job helping me find a home. He had an answer to all my questions, and made sure to respond in a timely manner. He is very professional and paid attention to my wants and needs. This was my first time purchasing a home, and he made the process smooth and took care of everything for me. I will always recommend Francisco to any friends or family members!"</p>
+            <p class="text-gray-300 italic text-lg leading-relaxed mb-6">"Francisco did an amazing job helping me find a home. He had an answer to all my questions, and made sure to respond in a timely manner. He is very professional and paid attention to my wants and needs. This was my first time purchasing a home, and he made the process smooth and took care of everything for me. I will always recommend Francisco to any friends or family members!"</p>
+            <div class="border-t border-accent/20 pt-4">
+              <h4 class="font-bold text-lg text-white">Jessica Rehurek</h4>
+              <p class="text-gray-400 text-sm">Bought a Townhouse home in 2025</p>
+            </div>
           </div>
         </div>
 
         <!-- Testimonial 2 -->
         <div class="swiper-slide">
-          <div class="testimonial-card bg-black/30 backdrop-blur-sm p-8 rounded-2xl border border-accent/20 transition-all duration-500 h-full">
-            <div class="flex items-center mb-6">
-              <img src="img/testimonials/default.jpg" alt="Dayana" class="w-14 h-14 rounded-full object-cover" />
-              <div class="ml-4">
-                <h4 class="font-bold text-lg">Dayana Porras Galvan</h4>
-                <p class="text-gray-300 text-sm">Bought a Single Family home in 2025</p>
-              </div>
-            </div>
-            <div class="flex mb-4 text-yellow-400">
+          <div class="testimonial-card bg-black/20 backdrop-blur-md p-8 rounded-3xl border border-accent/10 transition-all duration-700 h-full hover:bg-black/30 hover:border-accent/20 hover:scale-[1.02]">
+            <div class="flex mb-6 text-yellow-400">
               <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
             </div>
-            <p class="text-gray-300 italic">"It has been a pleasure working with Francisco. Any questions that we would have always answer politely, he was patient and very helpful to send email and text to us and finally we could get a new house. Thank you so much Francisco great Agent, we will stay in touch for a new house. Family Silva Porras."</p>
+            <p class="text-gray-300 italic text-lg leading-relaxed mb-6">"It has been a pleasure working with Francisco. Any questions that we would have always answer politely, he was patient and very helpful to send email and text to us and finally we could get a new house. Thank you so much Francisco great Agent, we will stay in touch for a new house. Family Silva Porras."</p>
+            <div class="border-t border-accent/20 pt-4">
+              <h4 class="font-bold text-lg text-white">Dayana Porras Galvan</h4>
+              <p class="text-gray-400 text-sm">Bought a Single Family home in 2025</p>
+            </div>
           </div>
         </div>
 
         <!-- Testimonial 3 -->
         <div class="swiper-slide">
-          <div class="testimonial-card bg-black/30 backdrop-blur-sm p-8 rounded-2xl border border-accent/20 transition-all duration-500 h-full">
-            <div class="flex items-center mb-6">
-              <img src="img/testimonials/default.jpg" alt="Marquez" class="w-14 h-14 rounded-full object-cover" />
-              <div class="ml-4">
-                <h4 class="font-bold text-lg">Marquez Jurado</h4>
-                <p class="text-gray-300 text-sm">Bought a Single Family home in 2025</p>
-              </div>
-            </div>
-            <div class="flex mb-4 text-yellow-400">
+          <div class="testimonial-card bg-black/20 backdrop-blur-md p-8 rounded-3xl border border-accent/10 transition-all duration-700 h-full hover:bg-black/30 hover:border-accent/20 hover:scale-[1.02]">
+            <div class="flex mb-6 text-yellow-400">
               <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
             </div>
-            <p class="text-gray-300 italic">"Francisco is a kind and helpful. Our experience with being first time homeowners with him was amazing. He was able to answer all of my questions and would consistently follow up with me. Francisco made the process easy and simple. "</p>
+            <p class="text-gray-300 italic text-lg leading-relaxed mb-6">"Francisco is a kind and helpful. Our experience with being first time homeowners with him was amazing. He was able to answer all of my questions and would consistently follow up with me. Francisco made the process easy and simple."</p>
+            <div class="border-t border-accent/20 pt-4">
+              <h4 class="font-bold text-lg text-white">Marquez Jurado</h4>
+              <p class="text-gray-400 text-sm">Bought a Single Family home in 2025</p>
+            </div>
           </div>
         </div>
 
         <!-- Testimonial 4 -->
         <div class="swiper-slide">
-          <div class="testimonial-card bg-black/30 backdrop-blur-sm p-8 rounded-2xl border border-accent/20 transition-all duration-500 h-full">
-            <div class="flex items-center mb-6">
-              <img src="img/testimonials/default.jpg" alt="Ivan" class="w-14 h-14 rounded-full object-cover" />
-              <div class="ml-4">
-                <h4 class="font-bold text-lg">Ivan Garrido</h4>
-                <p class="text-gray-300 text-sm">Bought a Single Family home in 2024</p>
-              </div>
-            </div>
-            <div class="flex mb-4 text-yellow-400">
+          <div class="testimonial-card bg-black/20 backdrop-blur-md p-8 rounded-3xl border border-accent/10 transition-all duration-700 h-full hover:bg-black/30 hover:border-accent/20 hover:scale-[1.02]">
+            <div class="flex mb-6 text-yellow-400">
               <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
             </div>
-            <p class="text-gray-300 italic">"I purchased my first house thanks to Francisco. He'll ask you what you want and will do his best to find you properties that fit your needs. He's responsive, worked with my schedule and helped me with my buying process. I recommend Francisco as a realtor and hope to work with him in the future. -Ivan "</p>
+            <p class="text-gray-300 italic text-lg leading-relaxed mb-6">"I purchased my first house thanks to Francisco. He'll ask you what you want and will do his best to find you properties that fit your needs. He's responsive, worked with my schedule and helped me with my buying process. I recommend Francisco as a realtor and hope to work with him in the future. -Ivan"</p>
+            <div class="border-t border-accent/20 pt-4">
+              <h4 class="font-bold text-lg text-white">Ivan Garrido</h4>
+              <p class="text-gray-400 text-sm">Bought a Single Family home in 2024</p>
+            </div>
           </div>
         </div>
 
         <!-- Testimonial 5 -->
         <div class="swiper-slide">
-          <div class="testimonial-card bg-black/30 backdrop-blur-sm p-8 rounded-2xl border border-accent/20 transition-all duration-500 h-full">
-            <div class="flex items-center mb-6">
-              <img src="img/testimonials/default.jpg" alt="Marquez" class="w-14 h-14 rounded-full object-cover" />
-              <div class="ml-4">
-                <h4 class="font-bold text-lg">Jane Amakobe</h4>
-                <p class="text-gray-300 text-sm">Bought a Single Family home in 2024</p>
-              </div>
-            </div>
-            <div class="flex mb-4 text-yellow-400">
+          <div class="testimonial-card bg-black/20 backdrop-blur-md p-8 rounded-3xl border border-accent/10 transition-all duration-700 h-full hover:bg-black/30 hover:border-accent/20 hover:scale-[1.02]">
+            <div class="flex mb-6 text-yellow-400">
               <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
             </div>
-            <p class="text-gray-300 italic">"Buying a home can be overwhelming, but Francisco's expertise in the real estate business made the journey easy. His ability to analyze market conditions and provide excellent advice helped us secure our dream home in the best location at an affordable price. Francisco was involved in all aspects of closing and beyond. He was also able to link us up with home improvement experts incase we needed help. I can't say enough positive things about his service provider skills."</p>
+            <p class="text-gray-300 italic text-lg leading-relaxed mb-6">"Buying a home can be overwhelming, but Francisco's expertise in the real estate business made the journey easy. His ability to analyze market conditions and provide excellent advice helped us secure our dream home in the best location at an affordable price. Francisco was involved in all aspects of closing and beyond. He was also able to link us up with home improvement experts incase we needed help. I can't say enough positive things about his service provider skills."</p>
+            <div class="border-t border-accent/20 pt-4">
+              <h4 class="font-bold text-lg text-white">Jane Amakobe</h4>
+              <p class="text-gray-400 text-sm">Bought a Single Family home in 2024</p>
+            </div>
           </div>
         </div>
 
         <!-- Testimonial 6 -->
         <div class="swiper-slide">
-          <div class="testimonial-card bg-black/30 backdrop-blur-sm p-8 rounded-2xl border border-accent/20 transition-all duration-500 h-full">
-            <div class="flex items-center mb-6">
-              <img src="img/testimonials/default.jpg" alt="Marquez" class="w-14 h-14 rounded-full object-cover" />
-              <div class="ml-4">
-                <h4 class="font-bold text-lg">Jander Munoz</h4>
-                <p class="text-gray-300 text-sm">Bought a home in 2024.</p>
-              </div>
-            </div>
-            <div class="flex mb-4 text-yellow-400">
+          <div class="testimonial-card bg-black/20 backdrop-blur-md p-8 rounded-3xl border border-accent/10 transition-all duration-700 h-full hover:bg-black/30 hover:border-accent/20 hover:scale-[1.02]">
+            <div class="flex mb-6 text-yellow-400">
               <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
             </div>
-            <p class="text-gray-300 italic">"Francisco did an amazing job,He helped us with everything we need it to find our forever home. We are very thankful for him and we Highly recommend him to anyone that is looking for a house HE IS THE BEST ??"</p>
+            <p class="text-gray-300 italic text-lg leading-relaxed mb-6">"Francisco did an amazing job, He helped us with everything we need it to find our forever home. We are very thankful for him and we Highly recommend him to anyone that is looking for a house HE IS THE BEST!"</p>
+            <div class="border-t border-accent/20 pt-4">
+              <h4 class="font-bold text-lg text-white">Jander Munoz</h4>
+              <p class="text-gray-400 text-sm">Bought a home in 2024</p>
+            </div>
           </div>
         </div>
 
-
         <!-- Testimonial 7 -->
         <div class="swiper-slide">
-          <div class="testimonial-card bg-black/30 backdrop-blur-sm p-8 rounded-2xl border border-accent/20 transition-all duration-500 h-full">
-            <div class="flex items-center mb-6">
-              <img src="img/testimonials/default.jpg" alt="Marquez" class="w-14 h-14 rounded-full object-cover" />
-              <div class="ml-4">
-                <h4 class="font-bold text-lg">Denisse Escoto</h4>
-                <p class="text-gray-300 text-sm">Bought a Single Family home in 2025.</p>
-              </div>
-            </div>
-            <div class="flex mb-4 text-yellow-400">
+          <div class="testimonial-card bg-black/20 backdrop-blur-md p-8 rounded-3xl border border-accent/10 transition-all duration-700 h-full hover:bg-black/30 hover:border-accent/20 hover:scale-[1.02]">
+            <div class="flex mb-6 text-yellow-400">
               <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
             </div>
-            <p class="text-gray-300 italic">"Francisco made the home buying process easy and straightforward! As as first time home buyer, it's can be intimidating to start such a long process but Francisco helped every step of the way!"</p>
+            <p class="text-gray-300 italic text-lg leading-relaxed mb-6">"Francisco made the home buying process easy and straightforward! As a first time home buyer, it can be intimidating to start such a long process but Francisco helped every step of the way!"</p>
+            <div class="border-t border-accent/20 pt-4">
+              <h4 class="font-bold text-lg text-white">Denisse Escoto</h4>
+              <p class="text-gray-400 text-sm">Bought a Single Family home in 2025</p>
+            </div>
           </div>
         </div>
 
         <!-- Testimonial 8 -->
         <div class="swiper-slide">
-          <div class="testimonial-card bg-black/30 backdrop-blur-sm p-8 rounded-2xl border border-accent/20 transition-all duration-500 h-full">
-            <div class="flex items-center mb-6">
-              <img src="img/testimonials/default.jpg" alt="Marquez" class="w-14 h-14 rounded-full object-cover" />
-              <div class="ml-4">
-                <h4 class="font-bold text-lg">Kevin Santisoks</h4>
-                <p class="text-gray-300 text-sm">Bought a Single Family home in 2025.</p>
-              </div>
-            </div>
-            <div class="flex mb-4 text-yellow-400">
+          <div class="testimonial-card bg-black/20 backdrop-blur-md p-8 rounded-3xl border border-accent/10 transition-all duration-700 h-full hover:bg-black/30 hover:border-accent/20 hover:scale-[1.02]">
+            <div class="flex mb-6 text-yellow-400">
               <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
             </div>
-            <p class="text-gray-300 italic">"Francisco is a very quiet and reserved individual but he is also súper helpful with the entire home process!!! My wife and I are very satisfied with his knowledge and Service. He made this a fast and essy process! We enjoyed working with Francisco!"</p>
+            <p class="text-gray-300 italic text-lg leading-relaxed mb-6">"Francisco is a very quiet and reserved individual but he is also súper helpful with the entire home process!!! My wife and I are very satisfied with his knowledge and Service. He made this a fast and easy process! We enjoyed working with Francisco!"</p>
+            <div class="border-t border-accent/20 pt-4">
+              <h4 class="font-bold text-lg text-white">Kevin Santisoks</h4>
+              <p class="text-gray-400 text-sm">Bought a Single Family home in 2025</p>
+            </div>
           </div>
         </div>
 
-         <!-- Testimonial 9 -->
+        <!-- Testimonial 9 -->
         <div class="swiper-slide">
-          <div class="testimonial-card bg-black/30 backdrop-blur-sm p-8 rounded-2xl border border-accent/20 transition-all duration-500 h-full">
-            <div class="flex items-center mb-6">
-              <img src="img/testimonials/default.jpg" alt="Marquez" class="w-14 h-14 rounded-full object-cover" />
-              <div class="ml-4">
-                <h4 class="font-bold text-lg">Jabir Gorbaga</h4>
-                <p class="text-gray-300 text-sm">Bought a Single Family home in 2025.</p>
-              </div>
-            </div>
-            <div class="flex mb-4 text-yellow-400">
+          <div class="testimonial-card bg-black/20 backdrop-blur-md p-8 rounded-3xl border border-accent/10 transition-all duration-700 h-full hover:bg-black/30 hover:border-accent/20 hover:scale-[1.02]">
+            <div class="flex mb-6 text-yellow-400">
               <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
             </div>
-            <p class="text-gray-300 italic">"He was professional and helpfull, he makes buying process easy...I would recommende him for everyone who wants buy or sell house. I did not know how buying process works thanks to Fransisco I made it in good way."</p>
+            <p class="text-gray-300 italic text-lg leading-relaxed mb-6">"He was professional and helpful, he makes buying process easy...I would recommend him for everyone who wants buy or sell house. I did not know how buying process works thanks to Francisco I made it in good way."</p>
+            <div class="border-t border-accent/20 pt-4">
+              <h4 class="font-bold text-lg text-white">Jabir Gorbaga</h4>
+              <p class="text-gray-400 text-sm">Bought a Single Family home in 2025</p>
+            </div>
           </div>
         </div>
 
         <!-- Testimonial 10 -->
         <div class="swiper-slide">
-          <div class="testimonial-card bg-black/30 backdrop-blur-sm p-8 rounded-2xl border border-accent/20 transition-all duration-500 h-full">
-            <div class="flex items-center mb-6">
-              <img src="img/testimonials/default.jpg" alt="Marquez" class="w-14 h-14 rounded-full object-cover" />
-              <div class="ml-4">
-                <h4 class="font-bold text-lg">Kasey Krall</h4>
-                <p class="text-gray-300 text-sm">Bought a Single Family home in 2024.</p>
-              </div>
-            </div>
-            <div class="flex mb-4 text-yellow-400">
+          <div class="testimonial-card bg-black/20 backdrop-blur-md p-8 rounded-3xl border border-accent/10 transition-all duration-700 h-full hover:bg-black/30 hover:border-accent/20 hover:scale-[1.02]">
+            <div class="flex mb-6 text-yellow-400">
               <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
             </div>
-            <p class="text-gray-300 italic">"Francisco made the process of buying my home as simple as possible. He's super easy to work with, delivered a low-stress, low-pressure experience, and kept me updated at each step. I'll definitely contact Francisco for any future home purchases or sales and would recommend him to anyone considering purchasing or selling property."</p>
+            <p class="text-gray-300 italic text-lg leading-relaxed mb-6">"Francisco made the process of buying my home as simple as possible. He's super easy to work with, delivered a low-stress, low-pressure experience, and kept me updated at each step. I'll definitely contact Francisco for any future home purchases or sales and would recommend him to anyone considering purchasing or selling property."</p>
+            <div class="border-t border-accent/20 pt-4">
+              <h4 class="font-bold text-lg text-white">Kasey Krall</h4>
+              <p class="text-gray-400 text-sm">Bought a Single Family home in 2024</p>
+            </div>
           </div>
         </div>
 
       </div>
+      
+      <!-- Custom Navigation -->
+      <div class="swiper-button-next !text-accent !opacity-70 hover:!opacity-100 transition-opacity"></div>
+      <div class="swiper-button-prev !text-accent !opacity-70 hover:!opacity-100 transition-opacity"></div>
+      
+      <!-- Custom Pagination -->
+      <div class="swiper-pagination !bottom-[-40px]"></div>
     </div>
   </div>
 </section>
@@ -672,11 +927,142 @@
         </div>
     </section>
 
+    <!-- Preferred Lenders Section -->
+    <section id="lenders" class="py-20 bg-darkbg relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-darkbg via-deepgreen/10 to-darkbg"></div>
+        <div class="absolute inset-0 bg-grid bg-top bg-repeat opacity-20" style="background-size: 100px 100px;"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-display font-bold mb-4 slide-in" data-i18n="preferred_lenders">Preferred <span class="text-accent">Lenders</span></h2>
+                <p class="max-w-2xl mx-auto text-gray-300 text-lg slide-in delay-1" data-i18n="lenders_subtitle">Trusted mortgage partners to help you secure the best financing for your dream home</p>
+            </div>
+            
+            <div class="max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Left Column - Ulises Edeza -->
+                    <div class="bg-black/30 backdrop-blur-md p-8 rounded-2xl border border-accent/20 hover:border-accent/40 transition-all duration-500 hover:scale-[1.02] slide-in delay-2">
+                        <div class="text-center mb-6">
+                            <div class="w-20 h-20 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-user-tie text-3xl text-accent"></i>
+                            </div>
+                            <h3 class="text-2xl font-display font-bold text-white mb-2">Ulises Edeza</h3>
+                            <p class="text-accent font-semibold mb-1" data-i18n="loan_officer">Loan Officer</p>
+                            <p class="text-gray-400 text-sm">Guild Mortgage Company LLC</p>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="text-accent text-lg mr-3 mt-1">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <p class="text-gray-300">2637 S. 158th Plaza, Suite 200</p>
+                                    <p class="text-gray-300">Omaha, NE 68130</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="text-accent text-lg mr-3">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                                <div>
+                                    <p class="text-white font-semibold">402-380-9914</p>
+                                    <p class="text-sm text-gray-400" data-i18n="mobile">Mobile</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="text-accent text-lg mr-3">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div>
+                                    <p class="text-white font-semibold">402-315-4563</p>
+                                    <p class="text-sm text-gray-400" data-i18n="office_phone">Office</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="text-accent text-lg mr-3">
+                                    <i class="fas fa-fax"></i>
+                                </div>
+                                <div>
+                                    <p class="text-white font-semibold">402-938-4894</p>
+                                    <p class="text-sm text-gray-400" data-i18n="fax">Fax</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="text-accent text-lg mr-3">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <p class="text-white font-semibold break-all">uedeza@guildmortgage.net</p>
+                                    <p class="text-sm text-gray-400" data-i18n="email_address">Email</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Column - Oscar Barrera Jr. -->
+                    <div class="bg-black/30 backdrop-blur-md p-8 rounded-2xl border border-accent/20 hover:border-accent/40 transition-all duration-500 hover:scale-[1.02] slide-in delay-3">
+                        <div class="text-center mb-6">
+                            <div class="w-20 h-20 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-user-tie text-3xl text-accent"></i>
+                            </div>
+                            <h3 class="text-2xl font-display font-bold text-white mb-2">Oscar Barrera Jr.</h3>
+                            <p class="text-accent font-semibold mb-1" data-i18n="loan_officer">Loan Officer</p>
+                            <p class="text-gray-400 text-sm">Peoples Mortgage Company</p>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <div class="text-accent text-lg mr-3">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div>
+                                    <p class="text-white font-semibold">402-566-8447</p>
+                                    <p class="text-sm text-gray-400" data-i18n="office_phone">Office</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="text-accent text-lg mr-3">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                                <div>
+                                    <p class="text-white font-semibold">402-941-4981</p>
+                                    <p class="text-sm text-gray-400" data-i18n="phone">Phone</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="text-accent text-lg mr-3">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <p class="text-white font-semibold break-all">obarrera@peoplesmortgage.com</p>
+                                    <p class="text-sm text-gray-400" data-i18n="email_address">Email</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="py-20 relative">
-        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1588022692333-5c0e6aeccce7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80')] bg-cover bg-center"></div>
-        <div class="absolute inset-0 bg-gradient-to-r from-black to-black/90"></div>
-        <div class="absolute inset-0 bg-grid bg-top bg-repeat" style="background-size: 150px 150px;"></div>
+        <!-- Background video -->
+        <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover opacity-200 z-0">
+            <source src="vid/contact/test.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+        </video>
+        
+        <!-- Overlay layers -->
+        <div class="absolute inset-0 bg-black bg-opacity-10 z-0"></div>
+        <div class="absolute inset-0 bg-grid bg-top bg-repeat z-0" style="background-size: 150px 150px;"></div>
+        
         <div class="container mx-auto px-6 relative z-10">
             <div class="max-w-4xl mx-auto">
                 <div class="text-center mb-16">
@@ -782,27 +1168,175 @@ document.getElementById('toggleContact').addEventListener('click', () => {
 </script>
 
 <script>
-  new Swiper('.swiper-container', {
+  new Swiper('.testimonials-swiper', {
     slidesPerView: 1,
     spaceBetween: 30,
     loop: true,
     autoplay: {
-      delay: 3000,
+      delay: 4000,
       disableOnInteraction: false,
+      pauseOnMouseEnter: true,
+    },
+    effect: 'slide',
+    speed: 800,
+    grabCursor: true,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+      dynamicBullets: true,
     },
     breakpoints: {
+      640: {
+        slidesPerView: 1,
+        spaceBetween: 20,
+      },
       768: {
         slidesPerView: 2,
+        spaceBetween: 30,
       },
       1024: {
         slidesPerView: 3,
+        spaceBetween: 40,
+      },
+      1280: {
+        slidesPerView: 3,
+        spaceBetween: 50,
       }
     }
   });
 </script>
 
-<script src="scripts/traduccion.js"></script>
 <script src="scripts/propiedades.js"></script>
+<script src="scripts/traduccion.js"></script>
 <script src="scripts/resultados.js"></script>
+
+<!-- Buy/Sell Interactive Section JavaScript -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const buySign = document.getElementById('buy-sign');
+    const sellSign = document.getElementById('sell-sign');
+    const buyPanel = document.getElementById('buy-panel');
+    const sellPanel = document.getElementById('sell-panel');
+    const signsContainer = document.getElementById('signs-container');
+    const closeBuy = document.getElementById('close-buy');
+    const closeSell = document.getElementById('close-sell');
+
+    // Buy Sign Click Handler
+    buySign.addEventListener('click', function() {
+        // Hide signs container with slide animation to the left
+        signsContainer.style.transform = 'translateX(-100%)';
+        signsContainer.style.opacity = '0';
+        
+        // Show buy panel with smooth transition
+        setTimeout(() => {
+            buyPanel.style.opacity = '1';
+            buyPanel.style.pointerEvents = 'auto';
+            buyPanel.style.transform = 'scale(1)';
+        }, 300);
+    });
+
+    // Sell Sign Click Handler
+    sellSign.addEventListener('click', function() {
+        // Hide signs container with slide animation to the right
+        signsContainer.style.transform = 'translateX(100%)';
+        signsContainer.style.opacity = '0';
+        
+        // Show sell panel with smooth transition
+        setTimeout(() => {
+            sellPanel.style.opacity = '1';
+            sellPanel.style.pointerEvents = 'auto';
+            sellPanel.style.transform = 'scale(1)';
+        }, 300);
+    });
+
+    // Close Buy Panel
+    closeBuy.addEventListener('click', function() {
+        // Hide buy panel
+        buyPanel.style.opacity = '0';
+        buyPanel.style.pointerEvents = 'none';
+        buyPanel.style.transform = 'scale(0.95)';
+        
+        // Show signs container with slide back animation
+        setTimeout(() => {
+            signsContainer.style.transform = 'translateX(0)';
+            signsContainer.style.opacity = '1';
+        }, 300);
+    });
+
+    // Close Sell Panel
+    closeSell.addEventListener('click', function() {
+        // Hide sell panel
+        sellPanel.style.opacity = '0';
+        sellPanel.style.pointerEvents = 'none';
+        sellPanel.style.transform = 'scale(0.95)';
+        
+        // Show signs container with slide back animation
+        setTimeout(() => {
+            signsContainer.style.transform = 'translateX(0)';
+            signsContainer.style.opacity = '1';
+        }, 300);
+    });
+
+    // Close panels when clicking outside (optional)
+    buyPanel.addEventListener('click', function(e) {
+        if (e.target === buyPanel) {
+            closeBuy.click();
+        }
+    });
+
+    sellPanel.addEventListener('click', function(e) {
+        if (e.target === sellPanel) {
+            closeSell.click();
+        }
+    });
+});
+</script>
+
+<!-- Smooth Scrolling JavaScript -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Enhanced smooth scrolling for all anchor links
+    function smoothScrollTo(target, duration = 800) {
+        const targetElement = document.querySelector(target);
+        if (!targetElement) return;
+        // Offset for fixed navbar (adjust if needed)
+        const offset = 100;
+        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
+        const startPosition = window.pageYOffset;
+        const distance = targetPosition - startPosition;
+        let startTime = null;
+        function animation(currentTime) {
+            if (startTime === null) startTime = currentTime;
+            const timeElapsed = currentTime - startTime;
+            const run = easeInOutCubic(timeElapsed, startPosition, distance, duration);
+            window.scrollTo(0, run);
+            if (timeElapsed < duration) requestAnimationFrame(animation);
+        }
+        function easeInOutCubic(t, b, c, d) {
+            t /= d / 2;
+            if (t < 1) return c / 2 * t * t * t + b;
+            t -= 2;
+            return c / 2 * (t * t * t + 2) + b;
+        }
+        requestAnimationFrame(animation);
+    }
+    document.addEventListener('click', function(e) {
+        const link = e.target.closest('a[href^=\"#\"]');
+        if (link && link.hash && link.hash !== '#') {
+            const target = link.hash;
+            const targetElement = document.querySelector(target);
+            if (targetElement) {
+                e.preventDefault();
+                smoothScrollTo(target);
+            }
+        }
+    });
+});
+</script>
+
 </body>
 </html>

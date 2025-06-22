@@ -47,7 +47,29 @@ const translations = {
     "schedule_consultation": "Schedule Consultation",
     "hero_title": "Buying <span class=\"text-accent\">Or </span>Selling?",
     "hero_subtitle": "Let's make it happen with <span class=\"text-accent font-semibold\">Paredes Realty</span>!<br>",
-    "hero_cta": "Get Started <i class=\"fas fa-arrow-down ml-2\"></i>"
+    "hero_cta": "Get Started <i class=\"fas fa-arrow-down ml-2\"></i>",
+    "ready_move_forward": "Ready to <span class=\"text-accent\">Move Forward</span>?",
+    "choose_path": "Choose your path and discover what you need to know",
+    "ready_to_sell": "I'm ready to SELL",
+    "ready_to_buy": "I'm ready to BUY",
+    "click_learn_more": "Click to learn more",
+    "buying_requirements": "Buying Requirements",
+    "selling_requirements": "Selling Requirements",
+    "financial_preparation": "Financial Preparation",
+    "property_preferences": "Property Preferences",
+    "personal_information": "Personal Information",
+    "next_steps": "Next Steps",
+    "property_information": "Property Information",
+    "property_condition": "Property Condition",
+    "financial_details": "Financial Details",
+    "marketing_strategy": "Marketing Strategy",
+    "preferred_lenders": "Preferred <span class=\"text-accent\">Lenders</span>",
+    "lenders_subtitle": "Trusted mortgage partners to help you secure the best financing for your dream home",
+    "loan_officer": "Loan Officer",
+    "mobile": "Mobile",
+    "office_phone": "Office",
+    "fax": "Fax",
+    "email_address": "Email"
   },
   "es": {
     "get_in_touch": "¡Contáctame!",
@@ -95,7 +117,29 @@ const translations = {
     "schedule_consultation": "Agendar Consulta",
     "hero_title": "¿Comprar <span class=\"text-accent\">o </span>Vender?",
     "hero_subtitle": "¡Hagámoslo realidad con <span class=\"text-accent font-semibold\">Paredes Realty</span>!<br>",
-    "hero_cta": "Comienza <i class=\"fas fa-arrow-down ml-2\"></i>"
+    "hero_cta": "Comienza <i class=\"fas fa-arrow-down ml-2\"></i>",
+    "ready_move_forward": "¿Listo para <span class=\"text-accent\">Avanzar</span>?",
+    "choose_path": "Elige tu camino y descubre lo que necesitas saber",
+    "ready_to_sell": "Estoy listo para VENDER",
+    "ready_to_buy": "Estoy listo para COMPRAR",
+    "click_learn_more": "Haz clic para saber más",
+    "buying_requirements": "Requisitos para Comprar",
+    "selling_requirements": "Requisitos para Vender",
+    "financial_preparation": "Preparación Financiera",
+    "property_preferences": "Preferencias de Propiedad",
+    "personal_information": "Información Personal",
+    "next_steps": "Próximos Pasos",
+    "property_information": "Información de la Propiedad",
+    "property_condition": "Estado de la Propiedad",
+    "financial_details": "Detalles Financieros",
+    "marketing_strategy": "Estrategia de Marketing",
+    "preferred_lenders": "Prestamistas <span class=\"text-accent\">Preferidos</span>",
+    "lenders_subtitle": "Socios hipotecarios de confianza para ayudarte a obtener la mejor financiación para tu casa soñada",
+    "loan_officer": "Oficial de Préstamos",
+    "mobile": "Móvil",
+    "office_phone": "Oficina",
+    "fax": "Fax",
+    "email_address": "Correo Electrónico"
   }
 };
 
@@ -118,6 +162,13 @@ function setLanguage(lang) {
   translatePage(lang);
   closeLanguageBar();
   localStorage.setItem('lang', lang);
+}
+
+function closeLanguageBar() {
+  const languageBar = document.getElementById('language-bar');
+  if (languageBar) {
+    languageBar.style.display = 'none';
+  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
