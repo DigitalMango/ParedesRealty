@@ -335,13 +335,13 @@
             }
         }
         
-        /* Contact card positioning - always centered */
+        /* Contact card positioning - right side for desktop, centered for mobile */
         #contactCard {
             position: fixed !important;
             top: 50% !important;
-            left: 50% !important;
-            right: auto !important;
-            transform: translate(-50%, -50%) !important;
+            right: 6rem !important;
+            left: auto !important;
+            transform: translateY(-50%) !important;
             z-index: 70 !important;
             max-width: calc(100vw - 2rem) !important;
             max-height: calc(100vh - 2rem) !important;
@@ -350,9 +350,12 @@
             width: auto !important;
         }
         
-        /* Mobile contact card adjustments */
+        /* Mobile contact card adjustments - centered */
         @media (max-width: 640px) {
             #contactCard {
+                right: auto !important;
+                left: 50% !important;
+                transform: translate(-50%, -50%) !important;
                 width: calc(100vw - 2rem) !important;
                 max-width: 320px !important;
                 padding: 1rem !important;
@@ -440,6 +443,29 @@
         }
         
         /* CSS House Art Styles - REMOVED (now using PNG image) */
+        
+        /* Marquee Animation */
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        
+        .animate-marquee {
+            animation: marquee 30s linear infinite;
+        }
+        
+        .marquee-container {
+            position: relative;
+        }
+        
+        .marquee-content {
+            display: flex;
+            width: max-content;
+        }
     </style>
 
     <style>
@@ -500,11 +526,11 @@
         </div>
         <div class="ml-4">
             <h3 class="font-bold text-xl">Francisco Paredes</h3>
-            <p class="text-gray-300 text-sm">Principal Broker</p>
+            <p class="text-gray-300 text-sm" data-i18n="principal_broker">Principal Broker</p>
         </div>
         </div>
         <div class="border-t border-accent pt-4">
-        <p class="font-medium">Direct Contact</p>
+        <p class="font-medium" data-i18n="direct_contact">Direct Contact</p>
         <p class="text-accent font-semibold mt-1 flex items-center">
             <i class="fas fa-phone mr-2"></i> (531)283-2262
         </p>
@@ -520,15 +546,15 @@
 
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 w-full bg-transparent z-40 py-4 md:py-6 px-4 md:px-8 backdrop-blur">
-        <div class="max-w-7xl mx-auto relative flex items-center justify-between">
+        <div class="max-w-7xl mx-auto relative flex items-center">
             <!-- Left: Logo -->
             <div class="flex items-center">
-                <img src="img/logos/GreenBold.jpg" alt="ParedesRealty Logo" class="h-12 md:h-16 mr-2 md:mr-3 object-cover">
+                <img src="img/logos/GreenBold.jpg" alt="ParedesRealty Logo" class="h-14 md:h-20 mr-2 md:mr-3 object-cover">
                 
                 <!-- Center: Brand Name (visible on mobile) -->
                 <div class="md:hidden">
                     <a href="#" class="flex items-center">
-                        <h1 class="text-lg md:text-2xl font-display font-bold">Paredes<span class="text-accent">Realty</span></h1>
+                        <h1 class="text-xl md:text-3xl font-display font-bold">Paredes<span class="text-accent">Realty</span></h1>
                     </a>
                 </div>
             </div>
@@ -536,12 +562,12 @@
             <!-- Center: Brand Name (hidden on mobile) -->
             <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 flex items-center">
                 <a href="#" class="flex items-center">
-                    <h1 class="text-2xl font-display font-bold">Paredes<span class="text-accent">Realty</span></h1>
+                    <h1 class="text-3xl font-display font-bold">Paredes<span class="text-accent">Realty</span></h1>
                 </a>
             </div>
             
             <!-- Right: Navigation Links -->
-            <div class="hidden md:flex space-x-10">
+            <div class="hidden md:flex space-x-10 ml-auto">
                 <a href="#properties" class="text-gray-300 hover:text-accent transition duration-300" data-i18n="sold_portfolio">Sold Portfolio</a>
                 <a href="#testimonials" class="text-gray-300 hover:text-accent transition duration-300" data-i18n="testimonials">Testimonials</a>
                 <a href="#about" class="text-gray-300 hover:text-accent transition duration-300" data-i18n="about">About</a>
@@ -549,7 +575,7 @@
             </div>
             
             <!-- Mobile Menu Button -->
-            <button id="mobile-menu-toggle" class="md:hidden text-gray-300 hover:text-accent transition-colors">
+            <button id="mobile-menu-toggle" class="md:hidden text-gray-300 hover:text-accent transition-colors ml-auto">
                 <i class="fas fa-bars text-2xl"></i>
             </button>
         </div>
@@ -641,6 +667,64 @@
       <!-- Property 5 -->
       <div class="property-card animate-fade-in rounded-2xl overflow-hidden relative group cursor-pointer transition-all duration-500 transform hover:scale-[1.02] delay-[500ms]">
         <div class="property-carousel" id="property5"></div>
+      </div>
+    </div>
+
+    <!-- Featured Communities Section -->
+    <div class="text-center mt-16">
+      <button id="featured-communities-btn" class="inline-flex items-center px-8 py-4 bg-accent rounded-full font-semibold text-lg hover:bg-[#007A42] transition duration-300 transform hover:scale-105">
+        <i class="fas fa-map-marker-alt mr-3"></i>
+        Featured Communities
+        <i class="fas fa-chevron-down ml-3 transition-transform duration-300" id="chevron-icon"></i>
+      </button>
+      
+      <!-- Communities Marquee -->
+      <div id="communities-marquee" class="mt-8 max-w-6xl mx-auto overflow-hidden opacity-0 max-h-0 transition-all duration-500 ease-in-out">
+        <div class="bg-deepgreen/60 backdrop-blur-sm rounded-2xl p-6 border border-accent/30">
+          <div class="marquee-container overflow-hidden">
+            <div class="marquee-content flex space-x-8 animate-marquee">
+              <span class="text-white font-semibold text-lg whitespace-nowrap">Omaha</span>
+              <span class="text-white font-semibold text-lg whitespace-nowrap">Elkhorn</span>
+              <span class="text-white font-semibold text-lg whitespace-nowrap">Bellevue</span>
+              <span class="text-white font-semibold text-lg whitespace-nowrap">Papillion</span>
+              <span class="text-white font-semibold text-lg whitespace-nowrap">Gretna</span>
+              <span class="text-white font-semibold text-lg whitespace-nowrap">Millard</span>
+              <span class="text-white font-semibold text-lg whitespace-nowrap">Ashland</span>
+              <span class="text-white font-semibold text-lg whitespace-nowrap">Bennington</span>
+              <span class="text-white font-semibold text-lg whitespace-nowrap">Blair</span>
+              <span class="text-white font-semibold text-lg whitespace-nowrap">Fort Calhoun</span>
+              <span class="text-white font-semibold text-lg whitespace-nowrap">Fremont</span>
+              <span class="text-white font-semibold text-lg whitespace-nowrap">La Vista</span>
+              <span class="text-white font-semibold text-lg whitespace-nowrap">Lincoln</span>
+              <span class="text-white font-semibold text-lg whitespace-nowrap">Plattsmouth</span>
+              <span class="text-white font-semibold text-lg whitespace-nowrap">Valley</span>
+              <span class="text-white font-semibold text-lg whitespace-nowrap">Wahoo</span>
+              <span class="text-white font-semibold text-lg whitespace-nowrap">Waterloo</span>
+              <span class="text-white font-semibold text-lg whitespace-nowrap">Waverly</span>
+              <span class="text-white font-semibold text-lg whitespace-nowrap">Yutan</span>
+              <!-- Duplicate for seamless loop -->
+              <span class="text-white font-semibold text-lg whitespace-nowrap">Omaha</span>
+              <span class="text-white font-semibold text-lg whitespace-nowrap">Elkhorn</span>
+              <span class="text-white font-semibold text-lg whitespace-nowrap">Bellevue</span>
+              <span class="text-white font-semibold text-lg whitespace-nowrap">Papillion</span>
+              <span class="text-white font-semibold text-lg whitespace-nowrap">Gretna</span>
+              <span class="text-white font-semibold text-lg whitespace-nowrap">Millard</span>
+              <span class="text-white font-semibold text-lg whitespace-nowrap">Ashland</span>
+              <span class="text-white font-semibold text-lg whitespace-nowrap">Bennington</span>
+              <span class="text-white font-semibold text-lg whitespace-nowrap">Blair</span>
+              <span class="text-white font-semibold text-lg whitespace-nowrap">Fort Calhoun</span>
+              <span class="text-white font-semibold text-lg whitespace-nowrap">Fremont</span>
+              <span class="text-white font-semibold text-lg whitespace-nowrap">La Vista</span>
+              <span class="text-white font-semibold text-lg whitespace-nowrap">Lincoln</span>
+              <span class="text-white font-semibold text-lg whitespace-nowrap">Plattsmouth</span>
+              <span class="text-white font-semibold text-lg whitespace-nowrap">Valley</span>
+              <span class="text-white font-semibold text-lg whitespace-nowrap">Wahoo</span>
+              <span class="text-white font-semibold text-lg whitespace-nowrap">Waterloo</span>
+              <span class="text-white font-semibold text-lg whitespace-nowrap">Waverly</span>
+              <span class="text-white font-semibold text-lg whitespace-nowrap">Yutan</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -1388,19 +1472,19 @@
                 </a>
                 <p class="text-gray-500 mt-4 max-w-lg mx-auto" data-i18n="footer_desc">Unmatched expertise in Nebraska's luxury real estate market. Portfolio representation does not guarantee similar results.</p>
                 <div class="flex justify-center space-x-6 mt-8">
-                    <a href="https://www.instagram.com/paredesrealty?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-accent transition duration-300">
-                        <i class="fab fa-instagram text-xl"></i>
+                    <a href="https://www.instagram.com/paredesrealty?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="hover:scale-105 transition duration-300">
+                        <i class="fab fa-instagram text-xl text-pink-500"></i>
                     </a>
-                    <a href="https://www.linkedin.com/in/francisco-paredes-0953331b5" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-accent transition duration-300">
-                        <i class="fab fa-linkedin-in text-xl"></i>
+                    <a href="https://www.linkedin.com/in/francisco-paredes-0953331b5" target="_blank" rel="noopener noreferrer" class="hover:scale-105 transition duration-300">
+                        <i class="fab fa-linkedin-in text-xl text-blue-600"></i>
                     </a>
-                    <a href="https://www.facebook.com/franciscojose.paredes1/" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-accent transition duration-300">
-                        <i class="fab fa-facebook-f text-xl"></i>
+                    <a href="https://www.facebook.com/franciscojose.paredes1/" target="_blank" rel="noopener noreferrer" class="hover:scale-105 transition duration-300">
+                        <i class="fab fa-facebook-f text-xl text-blue-700"></i>
                     </a>
 
                     <a href="https://www.zillow.com/profile/ParedesRealty" target="_blank" rel="noopener noreferrer"
-                    class="hover:scale-105 transition duration-300">
-                    <img src="img/logos/zillow2.png" alt="Zillow" class="h-6">
+                    class="hover:scale-105 transition duration-300 flex items-center">
+                    <img src="img/logos/zillow2.png" alt="Zillow" class="h-5">
                 </div>
                 <div class="mt-8 text-gray-600 text-sm" data-i18n="rights">&copy; 2025 Paredes Realty. | DigitalMango. All rights reserved.</div>
             </div>
@@ -1663,6 +1747,33 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
+});
+</script>
+
+<!-- Featured Communities JavaScript -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const featuredBtn = document.getElementById('featured-communities-btn');
+    const communitiesMarquee = document.getElementById('communities-marquee');
+    const chevronIcon = document.getElementById('chevron-icon');
+    
+    if (featuredBtn && communitiesMarquee && chevronIcon) {
+        featuredBtn.addEventListener('click', function() {
+            const isExpanded = communitiesMarquee.classList.contains('opacity-100');
+            
+            if (isExpanded) {
+                // Collapse
+                communitiesMarquee.classList.remove('opacity-100', 'max-h-96');
+                communitiesMarquee.classList.add('opacity-0', 'max-h-0');
+                chevronIcon.style.transform = 'rotate(0deg)';
+            } else {
+                // Expand
+                communitiesMarquee.classList.remove('opacity-0', 'max-h-0');
+                communitiesMarquee.classList.add('opacity-100', 'max-h-96');
+                chevronIcon.style.transform = 'rotate(180deg)';
+            }
+        });
+    }
 });
 </script>
 

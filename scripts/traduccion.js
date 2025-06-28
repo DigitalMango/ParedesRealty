@@ -69,7 +69,9 @@ const translations = {
     "mobile": "Mobile",
     "office_phone": "Office",
     "fax": "Fax",
-    "email_address": "Email"
+    "email_address": "Email",
+    "principal_broker": "Principal Broker",
+    "direct_contact": "Direct Contact"
   },
   "es": {
     "get_in_touch": "¡Contáctame!",
@@ -120,9 +122,9 @@ const translations = {
     "hero_cta": "Comienza <i class=\"fas fa-arrow-down ml-2\"></i>",
     "ready_move_forward": "¿Listo para <span class=\"text-accent\">Avanzar</span>?",
     "choose_path": "Elige tu camino y descubre lo que necesitas saber",
-    "ready_to_sell": "Estoy listo para VENDER",
-    "ready_to_buy": "Estoy listo para COMPRAR",
-    "click_learn_more": "Haz clic para saber más",
+    "ready_to_sell": "Quiero VENDER",
+    "ready_to_buy": "Quiero COMPRAR",
+    "click_learn_more": "Haz click para saber más",
     "buying_requirements": "Requisitos para Comprar",
     "selling_requirements": "Requisitos para Vender",
     "financial_preparation": "Preparación Financiera",
@@ -139,7 +141,9 @@ const translations = {
     "mobile": "Móvil",
     "office_phone": "Oficina",
     "fax": "Fax",
-    "email_address": "Correo Electrónico"
+    "email_address": "Correo Electrónico",
+    "principal_broker": "Broker Principal",
+    "direct_contact": "Contacto Directo"
   }
 };
 
