@@ -224,7 +224,222 @@
                 grid-column: 1 / 2 !important;
                 grid-row: auto !important;
             }
+            
+            /* Mobile-specific sticky contact button styles */
+            .sticky-contact {
+                padding: 0.5rem 1rem !important;
+                font-size: 0.875rem !important;
+            }
+            
+            .sticky-contact i {
+                font-size: 1rem !important;
+            }
+            
+            .sticky-contact span {
+                display: none;
+            }
+            
+            /* Mobile contact card positioning */
+            #contactCard {
+                right: 0;
+                left: 0;
+                margin: 0 1rem;
+                width: auto;
+                max-width: 320px;
+                transform: translateY(-50%) !important;
+            }
         }
+        
+        /* Mobile navigation styles */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 60;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        .mobile-menu a {
+            color: #E5E5E5;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin: 1rem 0;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu a:hover {
+            color: #005C35;
+            background: rgba(0, 92, 53, 0.1);
+        }
+        
+        .mobile-menu-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: none;
+            border: none;
+            color: #E5E5E5;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        
+        .mobile-menu-close:hover {
+            color: #005C35;
+        }
+        
+        /* Mobile navbar logo adjustments */
+        @media (max-width: 768px) {
+            nav .max-w-7xl {
+                padding: 0 1rem;
+            }
+            
+            nav img {
+                height: 3rem !important;
+                margin-right: 0.5rem !important;
+            }
+            
+            nav h1 {
+                font-size: 1.25rem !important;
+            }
+            
+            /* Adjust center positioning for mobile */
+            nav .absolute.left-1\/2 {
+                position: static !important;
+                transform: none !important;
+                margin-left: auto;
+            }
+            
+            /* Mobile language bar positioning */
+            #language-bar {
+                bottom: 1rem !important;
+                right: 1rem !important;
+                left: 1rem !important;
+                max-width: none !important;
+            }
+        }
+        
+        /* Contact card positioning - always centered */
+        #contactCard {
+            position: fixed !important;
+            top: 50% !important;
+            left: 50% !important;
+            right: auto !important;
+            transform: translate(-50%, -50%) !important;
+            z-index: 70 !important;
+            max-width: calc(100vw - 2rem) !important;
+            max-height: calc(100vh - 2rem) !important;
+            overflow-y: auto !important;
+            margin: 0 !important;
+            width: auto !important;
+        }
+        
+        /* Mobile contact card adjustments */
+        @media (max-width: 640px) {
+            #contactCard {
+                width: calc(100vw - 2rem) !important;
+                max-width: 320px !important;
+                padding: 1rem !important;
+                margin: 0 !important;
+            }
+            
+            #contactCard .w-16 {
+                width: 3rem !important;
+                height: 3rem !important;
+            }
+            
+            #contactCard .text-xl {
+                font-size: 1.125rem !important;
+            }
+            
+            #contactCard .text-sm {
+                font-size: 0.875rem !important;
+            }
+        }
+        
+        /* Additional mobile optimizations */
+        @media (max-width: 640px) {
+            /* Smaller text sizes for very small screens */
+            .text-6xl {
+                font-size: 2.5rem !important;
+            }
+            
+            .text-5xl {
+                font-size: 2rem !important;
+            }
+            
+            .text-4xl {
+                font-size: 1.75rem !important;
+            }
+            
+            /* Adjust hero section padding */
+            .py-32 {
+                padding-top: 6rem !important;
+                padding-bottom: 6rem !important;
+            }
+            
+            /* Ensure proper spacing in sections */
+            .py-20 {
+                padding-top: 3rem !important;
+                padding-bottom: 3rem !important;
+            }
+            
+            /* Mobile-specific container padding */
+            .container {
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
+            
+            /* Mobile testimonial card adjustments */
+            .testimonial-card {
+                padding: 1.5rem !important;
+            }
+            
+            /* Mobile form adjustments */
+            input, textarea {
+                font-size: 16px !important; /* Prevents zoom on iOS */
+            }
+            
+            /* Mobile button adjustments */
+            .px-8 {
+                padding-left: 1.5rem !important;
+                padding-right: 1.5rem !important;
+            }
+            
+            .py-4 {
+                padding-top: 0.75rem !important;
+                padding-bottom: 0.75rem !important;
+            }
+        }
+        
+        /* Prevent horizontal scroll on mobile */
+        @media (max-width: 768px) {
+            body {
+                overflow-x: hidden;
+            }
+            
+            .container {
+                overflow-x: hidden;
+            }
+        }
+        
+        /* CSS House Art Styles - REMOVED (now using PNG image) */
     </style>
 
     <style>
@@ -247,64 +462,79 @@
 </head>
 <body class="text-light font-sans antialiased">
     <!-- Banner flotante para cambio de idioma -->
-    <div id="language-bar" class="fixed bottom-4 right-4 bg-accent text-white text-sm px-4 py-3 rounded-lg shadow-lg z-50">
+    <div id="language-bar" class="fixed bottom-4 right-4 bg-accent text-white text-xs md:text-sm px-3 md:px-4 py-2 md:py-3 rounded-lg shadow-lg z-50 max-w-xs md:max-w-none">
         <div class="flex items-center justify-between">
-            <span data-i18n="change_language">Desea cambiar de idioma?</span>
-            <div class="ml-4">
-                <button onclick="setLanguage('en')" class="language-button mx-1 font-bold underline" data-i18n="english">English</button>
-                <button onclick="setLanguage('es')" class="language-button mx-1 font-bold underline" data-i18n="spanish">Español</button>
+            <span data-i18n="change_language" class="hidden md:inline">Desea cambiar de idioma?</span>
+            <span data-i18n="change_language" class="md:hidden">Idioma:</span>
+            <div class="ml-2 md:ml-4">
+                <button onclick="setLanguage('en')" class="language-button mx-1 font-bold underline text-xs md:text-sm" data-i18n="english">English</button>
+                <button onclick="setLanguage('es')" class="language-button mx-1 font-bold underline text-xs md:text-sm" data-i18n="spanish">Español</button>
             </div>
-            <button onclick="closeLanguageBar()" class="ml-3 text-white font-bold">&times;</button>
+            <button onclick="closeLanguageBar()" class="ml-2 md:ml-3 text-white font-bold text-sm md:text-base">&times;</button>
         </div>
     </div>
     
     <!-- Sticky Button + Card -->
-        <div class="fixed top-1/2 right-6 transform -translate-y-1/2 z-50 flex flex-col items-end space-y-4">
+        <div class="fixed top-1/2 right-6 md:right-6 transform -translate-y-1/2 z-50 flex flex-col items-end space-y-4">
         <!-- Button -->
         <button id="toggleContact"
-            class="bg-[#064e3b] px-5 py-3 rounded-full shadow-lg hover:bg-[#065f46] transition-all duration-300 sticky-contact text-white font-semibold flex items-center space-x-2">
-            <i class="fas fa-user text-white text-xl"></i>
-            <span data-i18n="get_in_touch">Get in touch!</span>
+            class="bg-[#064e3b] px-3 md:px-5 py-2 md:py-3 rounded-full shadow-lg hover:bg-[#065f46] transition-all duration-300 sticky-contact text-white font-semibold flex items-center space-x-2">
+            <i class="fas fa-user text-white text-lg md:text-xl"></i>
+            <span class="hidden md:inline" data-i18n="get_in_touch">Get in touch!</span>
         </button>
+        </div>
 
-        <!-- Floating Contact Card -->
-        <div id="contactCard"
-            class="absolute right-full mr-4 top-1/2 transform -translate-y-1/2 bg-deepgreen p-6 rounded-xl shadow-2xl w-72 border border-accent scale-95 opacity-0 pointer-events-none transition-all duration-500 ease-in-out">
-            <div class="flex items-center mb-4">
-            <div class="relative">
-                <img src="img/personal/closeup.jpg" alt="Francisco Paredes"
-                class="w-16 h-16 rounded-full object-cover border-2 border-deepgreen">
-                <span class="absolute bottom-0 right-0 w-4 h-4 bg-emerald-500 rounded-full border-2 border-deepgreen"></span>
-            </div>
-            <div class="ml-4">
-                <h3 class="font-bold text-xl">Francisco Paredes</h3>
-                <p class="text-gray-300 text-sm">Principal Broker</p>
-            </div>
-            </div>
-            <div class="border-t border-accent pt-4">
-            <p class="font-medium">Direct Contact</p>
-            <p class="text-accent font-semibold mt-1 flex items-center">
-                <i class="fas fa-phone mr-2"></i> (531)283-2262
-            </p>
-            <p class="mt-1 flex items-center break-all">
-                <i class="fas fa-envelope mr-2 text-gray-300"></i> francisco.paredes@betteromaha.com
-            </p>
-            <a href="#contact"
-                class="mt-4 w-full py-3 bg-accent rounded-lg font-semibold hover:bg-[#007A42] transition duration-300 flex items-center justify-center" data-i18n="schedule_consultation">
-                <i class="far fa-calendar mr-2"></i> Schedule Consultation
-            </a>
-            </div>
+    <!-- Floating Contact Card - Moved outside button container for true centering -->
+    <div id="contactCard"
+        class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-deepgreen p-6 rounded-xl shadow-2xl w-80 md:w-96 border border-accent scale-95 opacity-0 pointer-events-none transition-all duration-500 ease-in-out z-70">
+        <!-- Close Button -->
+        <button id="closeContactCard" class="absolute top-3 right-3 text-gray-300 hover:text-white text-xl font-bold transition-colors">
+            ✕
+        </button>
+        
+        <div class="flex items-center mb-4">
+        <div class="relative">
+            <img src="img/personal/closeup.jpg" alt="Francisco Paredes"
+            class="w-16 h-16 rounded-full object-cover border-2 border-deepgreen">
+            <span class="absolute bottom-0 right-0 w-4 h-4 bg-emerald-500 rounded-full border-2 border-deepgreen"></span>
+        </div>
+        <div class="ml-4">
+            <h3 class="font-bold text-xl">Francisco Paredes</h3>
+            <p class="text-gray-300 text-sm">Principal Broker</p>
         </div>
         </div>
+        <div class="border-t border-accent pt-4">
+        <p class="font-medium">Direct Contact</p>
+        <p class="text-accent font-semibold mt-1 flex items-center">
+            <i class="fas fa-phone mr-2"></i> (531)283-2262
+        </p>
+        <p class="mt-1 flex items-center break-all">
+            <i class="fas fa-envelope mr-2 text-gray-300"></i> francisco.paredes@betteromaha.com
+        </p>
+        <a href="#contact"
+            class="mt-4 w-full py-3 bg-accent rounded-lg font-semibold hover:bg-[#007A42] transition duration-300 flex items-center justify-center" data-i18n="schedule_consultation">
+            <i class="far fa-calendar mr-2"></i> Schedule Consultation
+        </a>
+        </div>
+    </div>
 
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 w-full bg-transparent z-40 py-6 px-8 backdrop-blur">
+    <nav class="fixed top-0 left-0 w-full bg-transparent z-40 py-4 md:py-6 px-4 md:px-8 backdrop-blur">
         <div class="max-w-7xl mx-auto relative flex items-center justify-between">
             <!-- Left: Logo -->
-            <img src="img/logos/GreenBold.jpg" alt="ParedesRealty Logo" class="h-16 mr-3 object-cover">
+            <div class="flex items-center">
+                <img src="img/logos/GreenBold.jpg" alt="ParedesRealty Logo" class="h-12 md:h-16 mr-2 md:mr-3 object-cover">
+                
+                <!-- Center: Brand Name (visible on mobile) -->
+                <div class="md:hidden">
+                    <a href="#" class="flex items-center">
+                        <h1 class="text-lg md:text-2xl font-display font-bold">Paredes<span class="text-accent">Realty</span></h1>
+                    </a>
+                </div>
+            </div>
             
-            <!-- Center: Brand Name -->
-            <div class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1 md:translate-y-0 flex items-center">
+            <!-- Center: Brand Name (hidden on mobile) -->
+            <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 flex items-center">
                 <a href="#" class="flex items-center">
                     <h1 class="text-2xl font-display font-bold">Paredes<span class="text-accent">Realty</span></h1>
                 </a>
@@ -319,22 +549,35 @@
             </div>
             
             <!-- Mobile Menu Button -->
-            <button class="md:hidden text-gray-300">
+            <button id="mobile-menu-toggle" class="md:hidden text-gray-300 hover:text-accent transition-colors">
                 <i class="fas fa-bars text-2xl"></i>
             </button>
         </div>
     </nav>
 
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="mobile-menu">
+        <button id="mobile-menu-close" class="mobile-menu-close">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="flex flex-col items-center space-y-6">
+            <a href="#properties" class="mobile-menu-link" data-i18n="sold_portfolio">Sold Portfolio</a>
+            <a href="#testimonials" class="mobile-menu-link" data-i18n="testimonials">Testimonials</a>
+            <a href="#about" class="mobile-menu-link" data-i18n="about">About</a>
+            <a href="#contact" class="mobile-menu-link text-accent font-semibold" data-i18n="contact">Contact</a>
+        </div>
+    </div>
+
     <!-- Hero Section -->
 <header class="parallax relative min-h-screen flex items-center pt-20 overflow-hidden">
     <!-- Background video -->
-    <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover opacity-200 z-0">
+    <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover opacity-300 z-0">
         <source src="vid/hero/compilation.mp4" type="video/mp4" />
         Your browser does not support the video tag.
     </video>
 
     <!-- Optional subtle dark overlay -->
-    <div class="absolute inset-0 bg-black bg-opacity-10 z-0"></div>
+    <div class="absolute inset-0 bg-black bg-opacity-5 z-0"></div>
 
     <!-- Optional grid texture if you want -->
     <div class="grid-overlay z-0"></div>
@@ -412,34 +655,44 @@
       <p class="max-w-2xl mx-auto text-gray-300 text-lg slide-in delay-1" data-i18n="choose_path">Choose your path and discover what you need to know</p>
     </div>
     
-    <!-- Interactive Signs Container -->
+    <!-- Interactive Houses Container -->
     <div class="max-w-6xl mx-auto relative">
-      <!-- Main Signs View -->
-      <div id="signs-container" class="flex items-center justify-center gap-48 md:gap-64 lg:gap-80 transition-all duration-1000 min-h-[500px]">
-        <!-- Sell Sign -->
+      <!-- Main Houses View -->
+      <div id="signs-container" class="flex flex-col md:flex-row items-center justify-center gap-12 md:gap-32 lg:gap-48 transition-all duration-1000 min-h-[400px] md:min-h-[500px]">
+        <!-- Sell House -->
         <div id="sell-sign" class="group cursor-pointer transform hover:scale-105 transition-all duration-500">
           <div class="relative">
-            <div class="w-4 h-64 bg-accent mx-auto rounded-full shadow-lg"></div>
-            <div class="absolute top-16 left-1/2 transform -translate-x-1/2 bg-white text-deepgreen p-12 rounded-lg shadow-2xl border-4 border-accent min-w-[280px]">
-              <div class="text-center">
-                <div class="text-4xl font-bold mb-2" data-i18n="ready_to_sell">I'm ready to SELL</div>
-                <div class="mt-4 text-sm text-gray-600" data-i18n="click_learn_more">Click to learn more</div>
+            <!-- House Image -->
+            <div class="relative w-32 h-32 md:w-40 md:h-40 mx-auto">
+              <img src="img/logos/smallHouse.png" alt="House" class="w-full h-full object-contain">
+              <!-- Sell Icon -->
+              <div class="absolute -top-2 -right-2 w-8 h-8 md:w-10 md:h-10 bg-white rounded-full shadow-lg flex items-center justify-center">
+                <i class="fas fa-tag text-accent text-sm md:text-base"></i>
               </div>
-              <div class="absolute top-1/2 -right-3 transform -translate-y-1/2 w-0 h-0 border-t-8 border-b-8 border-l-8 border-transparent border-l-accent"></div>
+            </div>
+            <!-- Label -->
+            <div class="mt-6 text-center">
+              <div class="text-2xl md:text-3xl font-bold text-white mb-2" data-i18n="ready_to_sell">I'm ready to SELL</div>
+              <div class="text-sm md:text-base text-gray-300" data-i18n="click_learn_more">Click to learn more</div>
             </div>
           </div>
         </div>
         
-        <!-- Buy Sign -->
+        <!-- Buy House -->
         <div id="buy-sign" class="group cursor-pointer transform hover:scale-105 transition-all duration-500">
           <div class="relative">
-            <div class="w-4 h-64 bg-accent mx-auto rounded-full shadow-lg"></div>
-            <div class="absolute top-16 left-1/2 transform -translate-x-1/2 bg-white text-deepgreen p-12 rounded-lg shadow-2xl border-4 border-accent min-w-[280px]">
-              <div class="text-center">
-                <div class="text-4xl font-bold mb-2" data-i18n="ready_to_buy">I'm ready to BUY</div>
-                <div class="mt-4 text-sm text-gray-600" data-i18n="click_learn_more">Click to learn more</div>
+            <!-- House Image -->
+            <div class="relative w-32 h-32 md:w-40 md:h-40 mx-auto">
+              <img src="img/logos/smallHouse.png" alt="House" class="w-full h-full object-contain">
+              <!-- Buy Icon -->
+              <div class="absolute -top-2 -right-2 w-8 h-8 md:w-10 md:h-10 bg-white rounded-full shadow-lg flex items-center justify-center">
+                <i class="fas fa-shopping-cart text-accent text-sm md:text-base"></i>
               </div>
-              <div class="absolute top-1/2 -left-3 transform -translate-y-1/2 w-0 h-0 border-t-8 border-b-8 border-r-8 border-transparent border-r-accent"></div>
+            </div>
+            <!-- Label -->
+            <div class="mt-6 text-center">
+              <div class="text-2xl md:text-3xl font-bold text-white mb-2" data-i18n="ready_to_buy">I'm ready to BUY</div>
+              <div class="text-sm md:text-base text-gray-300" data-i18n="click_learn_more">Click to learn more</div>
             </div>
           </div>
         </div>
@@ -1161,9 +1414,84 @@
     <script>
 document.getElementById('toggleContact').addEventListener('click', () => {
     const card = document.getElementById('contactCard');
-    card.classList.toggle('opacity-0');
-    card.classList.toggle('scale-95');
-    card.classList.toggle('pointer-events-none');
+    
+    // Toggle visibility
+    const isVisible = !card.classList.contains('opacity-0');
+    
+    if (!isVisible) {
+        // Show card
+        card.classList.remove('opacity-0');
+        card.classList.remove('scale-95');
+        card.classList.remove('pointer-events-none');
+    } else {
+        // Hide card
+        card.classList.add('opacity-0');
+        card.classList.add('scale-95');
+        card.classList.add('pointer-events-none');
+    }
+});
+
+// Close contact card when clicking the close button
+document.getElementById('closeContactCard').addEventListener('click', () => {
+    const card = document.getElementById('contactCard');
+    card.classList.add('opacity-0');
+    card.classList.add('scale-95');
+    card.classList.add('pointer-events-none');
+});
+
+// Close contact card when clicking outside
+document.addEventListener('click', (e) => {
+    const card = document.getElementById('contactCard');
+    const button = document.getElementById('toggleContact');
+    const closeButton = document.getElementById('closeContactCard');
+    
+    // Check if card is visible and click is outside card, button, and close button
+    if (!card.classList.contains('opacity-0') && 
+        !card.contains(e.target) && 
+        !button.contains(e.target) &&
+        !closeButton.contains(e.target)) {
+        
+        // Hide card
+        card.classList.add('opacity-0');
+        card.classList.add('scale-95');
+        card.classList.add('pointer-events-none');
+    }
+});
+
+// Mobile menu functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+    const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+
+    // Toggle mobile menu
+    mobileMenuToggle.addEventListener('click', function() {
+        mobileMenu.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    });
+
+    // Close mobile menu
+    mobileMenuClose.addEventListener('click', function() {
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scrolling
+    });
+
+    // Close mobile menu when clicking on a link
+    mobileMenuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        });
+    });
+
+    // Close mobile menu when clicking outside
+    mobileMenu.addEventListener('click', function(e) {
+        if (e.target === mobileMenu) {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+    });
 });
 </script>
 
