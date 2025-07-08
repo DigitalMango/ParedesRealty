@@ -1442,18 +1442,18 @@
                         </div>
                     </div>
                     
-                    <form class="space-y-4">
+                    <form id = "contactForm" class="space-y-4">
                         <div>
-                            <input type="text" data-i18n-placeholder="name" placeholder="Name" class="w-full bg-deepgreen/50 border border-accent/30 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent/50">
+                            <input type="text" name = "from_name" placeholder="Name" class="w-full bg-deepgreen/50 border border-accent/30 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent/50">
                         </div>
                         <div>
-                            <input type="email" data-i18n-placeholder="email" placeholder="Email" class="w-full bg-deepgreen/50 border border-accent/30 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent/50">
+                            <input type="email" name = "from_email" placeholder="Email" class="w-full bg-deepgreen/50 border border-accent/30 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent/50">
                         </div>
                         <div>
-                            <input type="tel" data-i18n-placeholder="phone" placeholder="Phone" class="w-full bg-deepgreen/50 border border-accent/30 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent/50">
+                            <input type="tel" name = "from_phone" placeholder="Phone" class="w-full bg-deepgreen/50 border border-accent/30 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent/50">
                         </div>
                         <div>
-                            <textarea data-i18n-placeholder="how_assist" placeholder="How can Francisco assist?" rows="3" class="w-full bg-deepgreen/50 border border-accent/30 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent/50"></textarea>
+                            <textarea name = "message" placeholder="How can Francisco assist?" rows="3" class="w-full bg-deepgreen/50 border border-accent/30 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent/50"></textarea>
                         </div>
                         <button type="submit" class="w-full py-4 bg-accent rounded-lg font-semibold text-lg hover:bg-[#007A42] transition duration-300" data-i18n="request_consultation">Request Consultation</button>
                     </form>
@@ -1492,7 +1492,33 @@
     </footer>
 
     <!-- Scripts -->
+
+    <!-- email send script -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+      (function() {
+        emailjs.init("pHOdzNXJcXq_LdNVy"); // Replace with your EmailJS public key
+      })();
+    </script>
+    
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- ScriptHadnle para el email -->
+    <script>
+      document.getElementById('contactForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+    
+        emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+          .then(function () {
+            alert('Message sent successfully!');
+            document.getElementById('contactForm').reset();
+          }, function (error) {
+            alert('Failed to send message. Please try again.');
+            console.error('EmailJS error:', error);
+          });
+      });
+    </script>
+    
 
 <!-- Script para la animacion del boton -->
     <script>
